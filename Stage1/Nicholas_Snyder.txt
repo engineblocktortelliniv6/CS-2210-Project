@@ -1,1 +1,1 @@
-My selected classes are supplier, purchase order, outbound shipment, and outbound order receipt.
+My selected classes are supplier, purchase order, outbound shipment, and outbound shipment receipt.
