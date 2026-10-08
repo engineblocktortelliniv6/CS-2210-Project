@@ -1,0 +1,4 @@
+I found the UML diagram software we used.
+I helped with brainstorming in multiple meetings to come up with all the classes in the diagram.
+I helped to update the diagram based on your feedback and clean up the diagram to be ready to submit.
+I exported the diagram as a PDF and placed it in the Github repo.
