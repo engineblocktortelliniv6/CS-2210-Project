@@ -1,9 +1,0 @@
-Overall, this is a good proposal, and the system has a clear purpose. The entities you identified generally make sense, and you have also done a good job describing how several of them are related.
-
-My main recommendation is to reduce the scope. Remember that your final system must support CRUD for every major entity you include. Right now, you already have many entities, and several are very similar.
-
-I think your strongest core entities are: Product, Product Location, Staff Account, Customer, Supplier, Purchase Order, Customer Order, Stock Movement, Inbound Delivery, and Outbound Shipment. 
-
-But these can be even reduced because based on the entities you have already defined, I expect that in Stage 3 you may need to create additional entities to help manage the relationships between these initial entities. This will increase the total number of entities in the system and, more importantly, increase the amount of integration required between them. With the current scope, that integration could become overwhelming.
-
-The project idea is appropriate, but I strongly recommend simplifying the number of entities before moving forward. A smaller system that is fully implemented and well integrated is better than a very large system with incomplete functionality.
