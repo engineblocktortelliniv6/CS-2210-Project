@@ -87,4 +87,8 @@ public class Staff extends Person {
     public boolean verifyPassword(String Password) {
         return password.equals(Password);
     }
+
+    public boolean verifyName(String name) {
+        return getName().equals(name);
+    }
 }
