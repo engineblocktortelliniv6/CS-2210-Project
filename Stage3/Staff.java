@@ -88,6 +88,11 @@ public class Staff extends Person {
         return password.equals(Password);
     }
 
+    /**
+     * Verifies the name of the staff member.
+     * @param name
+     * @return
+     */
     public boolean verifyName(String name) {
         return getName().equals(name);
     }
