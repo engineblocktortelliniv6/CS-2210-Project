@@ -16,7 +16,7 @@ public class Person {
      * @param personID    the identifier for the person
      * @param phoneNumber the phone number of the person
      */
-    public Person(String name, String personID, int phoneNumber) {
+    public Person(String name, String personID, String phoneNumber) {
         this.name = name;
         this.personID = personID;
         this.phoneNumber = phoneNumber;
@@ -41,7 +41,7 @@ public class Person {
      * Returns the phone number of the person.
      * @return the phone number of the person
      */
-    public int getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
@@ -64,7 +64,7 @@ public class Person {
      * Sets the phone number of the person.
      * @param phoneNumber the new phone number of the person
      */
-    public void setPhoneNumber(int phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 }

@@ -3,7 +3,7 @@ public class Staff extends Person {
     private boolean isAdmin;
     private String password;
 
-    public Staff(String name, String personID, int phoneNumber, String jobTitle, boolean isAdmin, String password) {
+    public Staff(String name, String personID, String phoneNumber, String jobTitle, boolean isAdmin, String password) {
         super(name, personID, phoneNumber);
         this.jobTitle = jobTitle;
         this.isAdmin = isAdmin;
