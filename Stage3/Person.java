@@ -8,7 +8,7 @@ public class Person {
 
     private String name;
     private String personID;
-    private int phoneNumber;
+    private String phoneNumber;
 
     /**
      * Constructs a new Person object with the specified name, person ID, and phone number.
