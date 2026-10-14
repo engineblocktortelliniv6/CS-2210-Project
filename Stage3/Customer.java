@@ -4,33 +4,33 @@
  * Created on October 14, 2026
  */
 public class Customer extends Person {
-    private String deliveryAddress;
+    private String address;
 
     /**
-     * Constructs a new Customer object with the specified name, person ID, phone number, and delivery address.
+     * Constructs a new Customer object with the specified name, person ID, phone number, and address.
      * @param name
      * @param personID
      * @param phoneNumber
-     * @param deliveryAddress
+     * @param address
      */
-    public Customer(String name, String personID, String phoneNumber, String deliveryAddress) {
+    public Customer(String name, String personID, String phoneNumber, String address) {
         super(name, personID, phoneNumber);
-        this.deliveryAddress = deliveryAddress;
+        this.address = address;
     }
 
     /**
-     * Returns the delivery address of the customer.
+     * Returns the address of the customer.
      * @return
      */
     public String getDeliveryAddress() {
-        return deliveryAddress;
+        return address;
     }
 
     /**
-     * Sets the delivery address of the customer.
-     * @param deliveryAddress
+     * Sets the address of the customer.
+     * @param address
      */
-    public void setDeliveryAddress(String deliveryAddress) {
-        this.deliveryAddress = deliveryAddress;
+    public void setDeliveryAddress(String address) {
+        this.address = address;
     }
 }
