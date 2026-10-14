@@ -1,7 +1,7 @@
 /**
  * This class represents a customer, extending the Person class.
  * @author Nicholas Snyder
- * Create on October 14, 2026
+ * Created on October 14, 2026
  */
 public class Customer extends Person {
     private String deliveryAddress;
