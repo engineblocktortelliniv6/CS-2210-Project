@@ -38,7 +38,7 @@ public class Staff extends Person {
         this.password = password;
     }
     
-    public boolean verifyPassword(String inputPassword) {
-        return password.equals(inputPassword);
+    public boolean verifyPassword(String Password) {
+        return password.equals(Password);
     }
 }
