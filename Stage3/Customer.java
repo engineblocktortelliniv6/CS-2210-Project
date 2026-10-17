@@ -22,7 +22,7 @@ public class Customer extends Person {
      * Returns the address of the customer.
      * @return
      */
-    public String getDeliveryAddress() {
+    public String getAddress() {
         return address;
     }
 
@@ -30,7 +30,7 @@ public class Customer extends Person {
      * Sets the address of the customer.
      * @param address
      */
-    public void setDeliveryAddress(String address) {
+    public void setAddress(String address) {
         this.address = address;
     }
 }
