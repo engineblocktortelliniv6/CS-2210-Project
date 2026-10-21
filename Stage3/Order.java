@@ -6,10 +6,11 @@ public class Order {
     private Person orderer;
     private Person staffName;
     private String date;
-    public Order(int orderNumber, Product products, String orderStatus,
+    public Order(int orderNumber, Product products, boolean orderStatus,
             Person orderer, Person staffName, String date) {
     this.orderNumber = orderNumber;
     this.products = products;
+        // order is pending - false or order is done - true
     this.orderStatus = false;
     this.orderer = orderer; 
     this.staffName = staffName;
@@ -29,11 +30,14 @@ public class Order {
         return staffName;
     }
     public boolean getOrderStatus(){
+        if (orderStatus == false) {
+            System.out.println("Order is pending"); }
+        else { System.out.println("Order is done");}
         return orderStatus;   
     }
-    //finish this one
+    //see if it works later
     public String getOrderType() {
-        return  
+        return this.getClass().getSimpleName();  
     }
     public void setOrder(int orderNumber) {
        this.orderNumber = orderNumber; 
@@ -47,11 +51,8 @@ public class Order {
     public void setStaffName(Person staffName) {
         this.staffName = staffName;
     }
-    //finish 
-    public void setOrderType(String orderType) {
-        
-    }
-    //finish
+    
+    //finish after ProductLocation class is done
     public sendOrderedProductsFromProductLocation() {
         
     }
