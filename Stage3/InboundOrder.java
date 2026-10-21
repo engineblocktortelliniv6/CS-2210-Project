@@ -1,9 +1,9 @@
 
 public class InboundOrder extends Order{
    private Supplier orderer; 
-   public InboundOrder(Supplier orderer) { 
+   public InboundOrder(Supplier orderer) {
+      super(0, null, false, orderer, null, "");
        this.orderer = orderer;
-       //call super
    }
    
    public Supplier getSupplier() {
