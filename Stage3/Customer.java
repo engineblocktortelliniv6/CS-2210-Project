@@ -41,10 +41,10 @@ public class Customer extends Person {
     @Override 
     public String toString() {
         return "Customer{" +
-                "name='" + getName() + '\'' +
-                ", personID='" + getPersonId() + '\'' +
-                ", phoneNumber='" + getPhoneNumber() + '\'' +
-                ", address='" + address + '\'' +
+                "name: '" + getName() + '\'' +
+                ", personID: '" + getPersonId() + '\'' +
+                ", phoneNumber: '" + getPhoneNumber() + '\'' +
+                ", address: '" + address + '\'' +
                 '}';
     }
 }

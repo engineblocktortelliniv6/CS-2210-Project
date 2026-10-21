@@ -69,11 +69,11 @@ public class Supplier extends Person {
     @Override 
     public String toString() {
         return "Supplier{" +
-                "name='" + getName() + '\'' +
-                ", personID='" + getPersonId() + '\'' +
-                ", phoneNumber='" + getPhoneNumber() + '\'' +
-                ", address='" + address + '\'' +
-                ", products=" + products +
+                "name: '" + getName() + '\'' +
+                ", personID: '" + getPersonId() + '\'' +
+                ", phoneNumber: '" + getPhoneNumber() + '\'' +
+                ", address: '" + address + '\'' +
+                ", products: " + products +
                 '}';
     }
 }
