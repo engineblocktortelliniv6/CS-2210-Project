@@ -4,7 +4,7 @@
  * This is a separate class for managing all of the files because Dr. Eduardo requesteth so.
  */
 public class FileManager {
-    
+
     /*-----------------------------------------------------------*/
     // THESE are THE METHODS for THE SAVING and THE LOADING of DATA
     /*-----------------------------------------------------------*/
@@ -15,7 +15,7 @@ public class FileManager {
      * @return a Warehouse, a OrderCatalogue, and a PersonCatalogue
      */
     public static void loadEverything() {
-        //TODO: implement functionality
+        //TOD: implement functionality
         System.out.println("TODO: implement functionality: we have not loaded everything.");
     }
 
@@ -24,9 +24,10 @@ public class FileManager {
      * @param w the Warehouse object to save.
      * @param o the OrderCatalogue object to save.
      * @param p the PersonCatalogue object to save.
+     * Warehouse w, OrderCatalogue o, PersonCatalogue p
      */
-    public static void saveEverything(Warehouse w, OrderCatalogue o, PersonCatalogue p) {
-        //TODO: implement functionality
+    public static void saveEverything() {
+        //TOD: implement functionality
         System.out.println("TODO: implement functionality: we have not saved everything.");
     }
 
