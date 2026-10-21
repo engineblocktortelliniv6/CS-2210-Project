@@ -13,6 +13,8 @@ public class Main {
     public static OrderCatalogue orderCatalogue;
     public static PersonCatalogue PersonCatalogue;
 
+    public static Scanner in;
+
     /**
      * this method is the entrypoint to the entire program
      * @param args for command line arguments (of which, if you add any, you will be ruthlessly mocked)
@@ -25,18 +27,21 @@ public class Main {
             System.out.println("Ah, well... anyways, let's continue to the main execution of the program.");
         }
 
+        // initalize the scanner
+        in = new Scanner(System.in);
+
         // search to see if the big data variables have .txt files,
         // if the .txt files exist, then load the information
         // if they do not exist, then make new variables
         warehouse = new Warehouse();
-        orderCatalogue = new orderCatalogue();
+        orderCatalogue = new OrderCatalogue();
         PersonCatalogue = new PersonCatalogue();
 
         // sign in the user
         signIn();
 
         // start THE MENU
-        Menu.in = new Scanner(System.in);
+        Menu.in = in;
         Menu.menu();
 
         // close the scanner
