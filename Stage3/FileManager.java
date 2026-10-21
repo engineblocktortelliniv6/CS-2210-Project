@@ -16,7 +16,7 @@ public class FileManager {
      */
     public static void loadEverything() {
         //TODO: implement functionality
-
+        System.out.println("TODO: implement functionality: we have not loaded everything.");
     }
 
     /**
@@ -27,6 +27,7 @@ public class FileManager {
      */
     public static void saveEverything(Warehouse w, OrderCatalogue o, PersonCatalogue p) {
         //TODO: implement functionality
+        System.out.println("TODO: implement functionality: we have not saved everything.");
     }
 
 }
