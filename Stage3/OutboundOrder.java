@@ -1,9 +1,9 @@
 
-public class OutboundOrder {
+public class OutboundOrder extends Order {
     private String address;
     private Customer orderer;
     public OutboundOrder(String address, Customer orderer) {
-        //call super
+        super(0, null, false, orderer, null, "");
         this.address = address;
         this.orderer = orderer;
     }
