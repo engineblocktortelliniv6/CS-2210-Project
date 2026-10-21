@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 /**
- * Author Xavier Cheney
+ * @author Xavier Cheney
  * Date: October 21, 2026
  * This is a separate class for managing all menus because Dr. Eduardo requesteth so.
  */
@@ -135,6 +135,18 @@ public class Menu {
      */
     public static void addPerson() {
         genericMenu("Add Person Menu", ADD_PERSON_MENU_STRINGS, ADD_PERSON_MENU_RUNNABLES);
+    }
+
+    public static void addStaff() {
+
+    }
+
+    public static void addSupplier() {
+        
+    }
+
+    public static void addCustomer() {
+        
     }
 
     /**
