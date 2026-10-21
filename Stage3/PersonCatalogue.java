@@ -35,7 +35,7 @@ public class PersonCatalogue {
      * @param personID the ID of the person to search for
      * @return the person if found, otherwise null
      */
-    public Person searchForPerson(String personID) {
+    public Person searchForPersonByID(String personID) {
         for (int i = 0; i < persons.size(); i++) {
             if (persons.get(i).getPersonId().equals(personID)) {
                 return persons.get(i);
@@ -43,18 +43,48 @@ public class PersonCatalogue {
         }
         return null;
     }
+
+    /**
+     * Searches for a person by their name.
+     * @param name the name of the person to search for
+     * @return the person if found, otherwise null
+     */
+    public Person searchForPersonByName(String name) {
+        for (int i = 0; i < persons.size(); i++) {
+            if (persons.get(i).getName().equalsIgnoreCase(name)) {
+                return persons.get(i);
+            }
+        }
+        return null;
+    }
+
     /**
      * Prints the details of a person with the specified ID.
      * @param personID the ID of the person to print
      */
-    public void printPerson(String personID) {
-        Person person = searchForPerson(personID);
+    public void printPersonByID(String personID) {
+        Person person = searchForPersonByID(personID);
         if (person != null) {
             System.out.println("Name: " + person.getName());
             System.out.println("Person ID: " + person.getPersonId());
             System.out.println("Phone Number: " + person.getPhoneNumber());
         } else {
             System.out.println("Person with ID " + personID + " not found.");
+        }
+    }
+
+    /**
+     * Prints the details of a person with the specified name.
+     * @param name the name of the person to print
+     */
+    public void printPersonByName(String name) {
+        Person person = searchForPersonByName(name);
+        if (person != null) {
+            System.out.println("Name: " + person.getName());
+            System.out.println("Person ID: " + person.getPersonId());
+            System.out.println("Phone Number: " + person.getPhoneNumber());
+        } else {
+            System.out.println("Person with name " + name + " not found.");
         }
     }
 }
