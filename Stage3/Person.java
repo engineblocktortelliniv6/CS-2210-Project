@@ -67,4 +67,17 @@ public class Person {
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
+
+    /**
+     * Returns a string representation of the person object.
+     * @return a string representation of the person object
+     */
+    @Override 
+    public String toString() {
+        return "Person{" +
+                "name='" + name + '\'' +
+                ", personID='" + personID + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                '}';
+    }
 }

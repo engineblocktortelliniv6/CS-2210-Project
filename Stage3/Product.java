@@ -66,4 +66,17 @@ public class Product {
     public void setProductID(int productID) {
         this.productID = productID;
     }
+
+    /**
+     * Returns a string representation of the product.
+     * @return a string representation of the product
+     */
+    @Override 
+    public String toString() {
+        return "Product{" +
+                "name='" + name + '\'' +
+                ", price=" + price +
+                ", productID=" + productID +
+                '}';
+    }
 }

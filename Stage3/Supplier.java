@@ -61,4 +61,19 @@ public class Supplier extends Person {
     public void removeProduct(Product product) {
         products.remove(product);
     }
+
+    /**
+     * Returns a string representation of the supplier.
+     * @return a string representation of the supplier
+     */
+    @Override 
+    public String toString() {
+        return "Supplier{" +
+                "name='" + getName() + '\'' +
+                ", personID='" + getPersonId() + '\'' +
+                ", phoneNumber='" + getPhoneNumber() + '\'' +
+                ", address='" + address + '\'' +
+                ", products=" + products +
+                '}';
+    }
 }

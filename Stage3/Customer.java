@@ -33,4 +33,18 @@ public class Customer extends Person {
     public void setAddress(String address) {
         this.address = address;
     }
+
+    /**
+     * Returns a string representation of the customer, including name, person ID, phone number, and address.
+     * @return
+     */
+    @Override 
+    public String toString() {
+        return "Customer{" +
+                "name='" + getName() + '\'' +
+                ", personID='" + getPersonId() + '\'' +
+                ", phoneNumber='" + getPhoneNumber() + '\'' +
+                ", address='" + address + '\'' +
+                '}';
+    }
 }

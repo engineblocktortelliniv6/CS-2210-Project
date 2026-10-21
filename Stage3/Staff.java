@@ -96,4 +96,19 @@ public class Staff extends Person {
     public boolean verifyName(String name) {
         return getName().equals(name);
     }
+
+    /**
+     * Returns a string representation of the staff member.
+     * @return a string representation of the staff member
+     */
+    @Override 
+    public String toString() {
+        return "Staff{" +
+                "name='" + getName() + '\'' +
+                ", personID='" + getPersonId() + '\'' +
+                ", phoneNumber='" + getPhoneNumber() + '\'' +
+                ", jobTitle='" + jobTitle + '\'' +
+                ", isAdmin=" + isAdmin +
+                '}';
+    }
 }
