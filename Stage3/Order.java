@@ -52,11 +52,15 @@ public class Order {
         this.staffName = staffName;
     }
     
-    //finish after ProductLocation class is done
     public sendOrderedProductsFromProductLocation() {
+        if (getOrderType().equals("OutboundOrder")) {
+            warehouse.removeProduct(products);
+        }
         
+    public addDeliveryToProductLocation(Warehouse warehouse) {
+        if (getOrderType().equals("InboundOrder")) {
+            warehouse.addProduct(products);
     }
-    public addDeliveryToProductLocation() {
 }
 }
 
