@@ -52,12 +52,13 @@ public class Order {
         this.staffName = staffName;
     }
     
-    public removeProductsFromWarehouse() {
+    public void removeProductsFromWarehouse(Warehouse warehouse) {
         if (getOrderType().equals("OutboundOrder")) {
             warehouse.removeProduct(products);
         }
+    }
         
-    public addProductsToWarehouse(Warehouse warehouse) {
+    public void addProductsToWarehouse(Warehouse warehouse) {
         if (getOrderType().equals("InboundOrder")) {
             warehouse.addProduct(products);
     }
