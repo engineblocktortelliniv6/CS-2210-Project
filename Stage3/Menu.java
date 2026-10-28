@@ -7,7 +7,19 @@ import java.util.Scanner;
  */
 public class Menu {
 
-    public static Scanner in;
+    private Scanner in;
+    private Reporter reporter;
+    private Warehouse warehouse;
+    private OrderCatalogue orderCatalogue;
+    private PersonCatalogue personCatalogue;
+
+    Menu(Scanner in, Warehouse warehouse, OrderCatalogue orderCatalogue, PersonCatalogue personCatalogue) {
+        this.in = in;
+        reporter = new Reporter(in);
+        this.warehouse = warehouse;
+        this.orderCatalogue = orderCatalogue;
+        this.personCatalogue = personCatalogue;
+    }
 
     /*----------------------------------------------------------*/
     // THESE are THE VARIABLES and THE METHODS for THE MENU SYSTEM
@@ -37,7 +49,8 @@ public class Menu {
      * Prints the information related to each inbound order.
      * This is the FIRST REPORT.
      */
-    public static void printOrders() {
+    public static void printOrders(Reporter reporter) {
+        reporter.printOrders();
         System.out.println("I am printing the orders ;)");
     }
 
