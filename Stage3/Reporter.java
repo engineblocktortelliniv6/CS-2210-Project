@@ -30,7 +30,7 @@ public class Reporter {
      * @param product
      */
     public void printProduct(Product product) {
-        System.out.println("Product Name: + product.getName()");
+        System.out.println("Product Name: " + product.getName());
         System.out.println("Product ID: " + product.getProductID());
         System.out.println("Product Price: " + product.getPrice());
     }
