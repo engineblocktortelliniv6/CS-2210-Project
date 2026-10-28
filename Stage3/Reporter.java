@@ -65,6 +65,10 @@ public class Reporter {
         }
     }
 
+    /**
+     * This method prints all of the products inside of the warehouse
+     * @param warehouse
+     */
     public void printWarehouseContents(Warehouse warehouse) {
         for (Product product : warehouse.getProducts()) {
             printProduct(product);
