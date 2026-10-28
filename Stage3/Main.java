@@ -35,13 +35,17 @@ public class Main {
         // if they do not exist, then make new variables
         warehouse = new Warehouse();
         orderCatalogue = new OrderCatalogue();
-        PersonCatalogue = new PersonCatalogue();
+        personCatalogue = new PersonCatalogue();
 
         // sign in the user
         signIn();
 
         // start THE MENU
         Menu.in = in;
+        Menu.reporter = new Reporter(in);
+        Menu.orderCatalogue = orderCatalogue;
+        Menu.warehouse = warehouse;
+        Menu.personCatalogue = personCatalogue;
         Menu.menu();
 
         // close the scanner

@@ -7,19 +7,11 @@ import java.util.Scanner;
  */
 public class Menu {
 
-    private Scanner in;
-    private Reporter reporter;
-    private Warehouse warehouse;
-    private OrderCatalogue orderCatalogue;
-    private PersonCatalogue personCatalogue;
-
-    Menu(Scanner in, Warehouse warehouse, OrderCatalogue orderCatalogue, PersonCatalogue personCatalogue) {
-        this.in = in;
-        reporter = new Reporter(in);
-        this.warehouse = warehouse;
-        this.orderCatalogue = orderCatalogue;
-        this.personCatalogue = personCatalogue;
-    }
+    public static Scanner in;
+    public static Reporter reporter;
+    public static Warehouse warehouse;
+    public static OrderCatalogue orderCatalogue;
+    public static PersonCatalogue personCatalogue;
 
     /*----------------------------------------------------------*/
     // THESE are THE VARIABLES and THE METHODS for THE MENU SYSTEM
@@ -91,7 +83,8 @@ public class Menu {
     }
 
     /**
-     * Asks user for product, then prints the quantity and locations of that product.
+     * Asks user for a product name,
+     * then prints the quantity and locations of that product (if there are any).
      */
     public static void findProduct() {
 
@@ -105,7 +98,10 @@ public class Menu {
      * and then append it to the ProductLocation.
      * Displays a message indicating that the item has been added successfully.
      */
-    public static void addProduct() {
+    public void addProduct() {
+        System.out.println("To add a product, we need to know from which supplier the product that you want to add comes from.");
+        System.out.println("What is the name of the supplier?");
+        String supplierName = this.in.nextLine();
 
     }
 
