@@ -11,7 +11,7 @@ import java.lang.Runnable;
 public class Main {
     public static Warehouse warehouse;
     public static OrderCatalogue orderCatalogue;
-    public static PersonCatalogue PersonCatalogue;
+    public static PersonCatalogue personCatalogue;
 
     public static Scanner in;
 
