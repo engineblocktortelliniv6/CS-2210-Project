@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.ArrayList;
 
 /**
  * @author Xavier Cheney
@@ -41,8 +42,8 @@ public class Menu {
      * Prints the information related to each inbound order.
      * This is the FIRST REPORT.
      */
-    public static void printOrders(Reporter reporter) {
-        reporter.printOrders();
+    public static void printOrders() {
+        reporter.printOrders(orderCatalogue);
         System.out.println("I am printing the orders ;)");
     }
 
@@ -98,11 +99,43 @@ public class Menu {
      * and then append it to the ProductLocation.
      * Displays a message indicating that the item has been added successfully.
      */
-    public void addProduct() {
+    public static void addProduct() {
         System.out.println("To add a product, we need to know from which supplier the product that you want to add comes from.");
         System.out.println("What is the name of the supplier?");
-        String supplierName = this.in.nextLine();
+        String supplierName = in.nextLine();
+        Person supplier = personCatalogue.searchForPersonByName(supplierName);
+        if (supplier == null) {
+            System.out.println("That supplier does not exist in the system, so we can't add the product.");
+            return;
+        }
 
+        // get the arraylist of products that the supplier offers
+        ArrayList<Product> products = supplier.getProducts();
+        if (products.size() == 0) {
+            System.out.println("That supplier does not offer any products, so you can't choose which one to add.");
+            return;
+        }
+        for (int i = 0; i < products.size(); i++ ) {
+            reporter.printProduct(products.get(i));
+        }
+
+        System.out.println("What is the name of the product that you want to add?");
+        String productString = in.nextLine();
+        Product product = null;
+        for (int i = 0; i < products.size(); i++ ) {
+            if (products.get(i).getName().equals(productString)) {
+                product = products.get(i);
+            }
+        }
+        if (product == null) {
+            System.out.println("That supplier does not have any " + productString + ", so we can't add it.");
+        }
+
+        System.out.println("To add a product, we need to know which location you want to add it to.");
+        System.out.println("Which location do you want to add the product to?");
+        
+
+        System.out.println(productString + " added successfully.");
     }
 
     /**
