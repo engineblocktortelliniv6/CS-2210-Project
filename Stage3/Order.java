@@ -16,7 +16,7 @@ public class Order {
     this.staffName = staffName;
     this.date = date;
 }
-    public int getOrder() {
+    public int getOrderNumber() {
         return orderNumber;
     }
     public Product getProducts() {
