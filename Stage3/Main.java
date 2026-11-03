@@ -28,14 +28,13 @@ public class Main {
         // initalize the scanner
         in = new Scanner(System.in);
 
-        // search to see if the big data variables have .txt files,
-        // if the .txt files exist, then load the information
-        // if they do not exist, then make new variables
         warehouse = new Warehouse();
         orderCatalogue = new OrderCatalogue();
         personCatalogue = new PersonCatalogue();
-        productCatalogue = new ProductCatalogue();
-        SeedInformation.seed(warehouse, personCatalogue, productCatalogue);
+
+        //Seed information
+        SeedInformation.seed(warehouse, orderCatalogue, personCatalogue);
+
         // sign in the user
         signIn();
 
