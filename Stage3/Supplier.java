@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-
 /**
  * This class represents a supplier, extending the Person class.
  * @author Nicholas Snyder
@@ -7,25 +5,25 @@ import java.util.ArrayList;
  */
 public class Supplier extends Person {
     private String address;
-    private ArrayList<Product> products;
+    private ProductCatalogue products;
 
     /**
-     * Constructs a new Supplier with the specified name, person ID, phone number, address, and list of products.
-     * @param name
-     * @param personID
-     * @param phoneNumber
-     * @param address
-     * @param products
+     * Constructs a new Supplier with the specified name, person ID, phone number, address, and product catalogue.
+     * @param name the name of the supplier
+     * @param personID the unique identifier of the supplier
+     * @param phoneNumber the contact number of the supplier
+     * @param address the physical or mailing address
+     * @param products the ProductCatalogue of items offered by this supplier
      */
-    public Supplier(String name, String personID, String phoneNumber, String address,ArrayList<Product> products) {
+    public Supplier(String name, String personID, String phoneNumber, String address, ProductCatalogue products) {
         super(name, personID, phoneNumber);
         this.address = address;
-        this.products = products;
+        this.products = new ProductCatalogue();
     }
 
     /**
      * Returns the address of the supplier.
-     * @return
+     * @return address
      */
     public String getAddress() {
         return address;
@@ -33,33 +31,34 @@ public class Supplier extends Person {
 
     /**
      * Sets the address of the supplier.
-     * @param address
+     * @param address new address
      */
     public void setAddress(String address) {
         this.address = address;
     }
+
     /**
-     * Returns the list of products supplied by the supplier.
-     * @return
+     * Returns the product catalogue of items supplied by the supplier.
+     * @return products catalogue
      */
-    public ArrayList<Product> getProducts() {
+    public ProductCatalogue getProducts() {
         return products;
     }
 
     /**
-     * Adds a product to the list of products supplied by the supplier.
-     * @param product
+     * Sets the product catalogue of the supplier.
+     * @param products new product catalogue
      */
-    public void addProduct(Product product) {
-        products.add(product);
+    public void setProducts(ProductCatalogue products) {
+        this.products = new ProductCatalogue();
     }
 
     /**
-     * Removes a product from the list of products supplied by the supplier.
-     * @param product
+     * Adds a product to the supplier's product catalogue.
+     * @param product the product to add
      */
-    public void removeProduct(Product product) {
-        products.remove(product);
+    public void addProduct(Product product) {
+        products.addProduct(product);
     }
 
     /**
@@ -73,7 +72,7 @@ public class Supplier extends Person {
                 ", personID: '" + getPersonId() + '\'' +
                 ", phoneNumber: '" + getPhoneNumber() + '\'' +
                 ", address: '" + address + '\'' +
-                ", products: " + products +
+                ", products: " + products.getCatalogue() +
                 '}';
     }
 }

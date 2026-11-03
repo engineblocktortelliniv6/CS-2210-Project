@@ -4,9 +4,7 @@
  * And if you're curious what proportion of it I have written, you can know that the answer is ALL of IT!!!
  */
 
-import java.util.ArrayList;
 import java.util.Scanner;
-import java.lang.Runnable;
 
 public class Main {
     public static Warehouse warehouse;
@@ -42,7 +40,7 @@ public class Main {
 
         // start THE MENU
         Menu.in = in;
-        Menu.reporter = new Reporter(in);
+        Menu.reporter = new Reporter();
         Menu.orderCatalogue = orderCatalogue;
         Menu.warehouse = warehouse;
         Menu.personCatalogue = personCatalogue;

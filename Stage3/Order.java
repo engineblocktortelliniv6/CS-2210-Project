@@ -80,11 +80,6 @@ public class Order {
      * @return true if the order is done, false otherwise
      */
     public boolean getOrderStatus() {
-        if (orderStatus == false) {
-            System.out.println("Order is pending");
-        } else {
-            System.out.println("Order is done");
-        }
         return orderStatus;
     }
 
@@ -96,6 +91,10 @@ public class Order {
      */
     public String getOrderType() {
         return this.getClass().getSimpleName();
+    }
+
+    public String getOrderDate() {
+        return date;
     }
 
     /**
@@ -143,6 +142,9 @@ public class Order {
         this.orderStatus = orderStatus;
     }
 
+    public void setOrderDate(String date) {
+        this.date = date;
+    }
     /**
      * Removes the products from the warehouse if
      * the order is an outbound order
