@@ -34,7 +34,8 @@ public class Main {
         warehouse = new Warehouse();
         orderCatalogue = new OrderCatalogue();
         personCatalogue = new PersonCatalogue();
-
+        productCatalogue = new ProductCatalogue();
+        SeedInformation.seed(warehouse, personCatalogue, productCatalogue);
         // sign in the user
         signIn();
 
