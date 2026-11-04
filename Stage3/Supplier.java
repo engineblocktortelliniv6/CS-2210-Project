@@ -15,7 +15,7 @@ public class Supplier extends Person {
      * @param address the physical or mailing address
      * @param products the ProductCatalogue of items offered by this supplier
      */
-    public Supplier(String name, String personID, String phoneNumber, String address, ProductCatalogue products) {
+    public Supplier(String name, int personID, String phoneNumber, String address, ProductCatalogue products) {
         super(name, personID, phoneNumber);
         this.address = address;
         this.products = new ProductCatalogue();
