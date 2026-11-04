@@ -2,7 +2,7 @@
  * This class adds any saved or initial dummy information into the system.
  * This class is designed to be called by Main.java following
  * the creation of instances of our manager classes.
- * 
+ * Created on 2 November 2026
  * @author Nicholas Snyder
  */
 public class SeedInformation {
