@@ -58,4 +58,18 @@ public class OutboundOrder extends Order {
     public void setOrderer(Customer orderer) {
         this.orderer = orderer;
     }
+
+    /**
+     * Removes the products from the warehouse if
+     * the order is an outbound order
+     * 
+     * @param warehouse the warehouse from which the
+     * products are removed
+     */
+    public void removeProductsFromWarehouse(Warehouse warehouse) {
+        if (getOrderType().equals("OutboundOrder")) {
+            warehouse.removeProduct(products);
+        }
+        
+    }
 }
