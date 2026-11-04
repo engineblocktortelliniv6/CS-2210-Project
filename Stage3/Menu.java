@@ -26,7 +26,7 @@ public class Menu {
     public static final String[] ADD_PERSON_MENU_STRINGS = {"Add Staff", "Add Supplier", "Add Customer"};
     public static final Runnable[] MENU_RUNNABLES = {Menu::orderMenu, Menu::warehouseMenu, Menu::personMenu, FileManager::saveEverything};
     public static final Runnable[] ORDER_MENU_RUNNABLES = {Menu::printOrders, Menu::addOrder, Menu::updateOrderStatus, FileManager::saveEverything};
-    public static final Runnable[] WAREHOUSE_MENU_RUNNABLES = {Menu::printLocations, Menu::printProducts, Menu::findProduct, Menu::addProduct, Menu::removeProducts, FileManager::saveEverything};
+    public static final Runnable[] WAREHOUSE_MENU_RUNNABLES = {Menu::findProduct, Menu::addProduct, Menu::removeProducts, FileManager::saveEverything};
     public static final Runnable[] PERSON_MENU_RUNNABLES = {Menu::printProductsOffered, Menu::printPerson, Menu::addPerson, Menu::removePerson, Menu::changePersonInfo, Menu::changeSupplierInfo, Menu::changeCustomerInfo, Menu::changeStaffInfo, FileManager::saveEverything};
     public static final Runnable[] ADD_PERSON_MENU_RUNNABLES = {Menu::addStaff, Menu::addSupplier, Menu::addCustomer};
     public static void menu() { genericMenu("Main Menu", MENU_STRINGS, MENU_RUNNABLES); }
