@@ -84,11 +84,32 @@ public class Menu {
     }
 
     /**
-     * Asks user for a product name,
-     * then prints the quantity and locations of that product (if there are any).
+     * Asks user for a product,
+     * then prints the product.
      */
     public static void findProduct() {
+        // get user search mode
+        System.out.println("If you wish to search for a product, then do you want to search by name or by ID?");
+        System.out.println("Write 'ID' or 'name'.");
+        String mode = in.nextLine().toLowerCase();
 
+        // print info based on the mode
+        switch (mode) {
+        case "name":
+            System.out.println("What is the name of the product that you wish to search for?");
+            String name = in.nextLine();
+            warehouse.removeProductByName(name);
+            break;
+        case "id":
+            System.out.println("What is the name of the product that you wish to search for?");
+            int ID = in.nextInt();
+            in.nextLine(); // consume the leftover newline
+            warehouse.removeProductByID(ID)
+            break;
+        default:
+            System.out.println("We can't search by whatever attribute '" + mode + "' is, broski...");
+            break;
+        }
     }
 
     /**
@@ -102,6 +123,10 @@ public class Menu {
         System.out.println("What is the name of the supplier?");
         String supplierName = in.nextLine();
         Person personSupplier = personCatalogue.searchForPersonByName(supplierName);
+        if (personSupplier instanceof Supplier) {} else {
+            System.out.println("The name " + supplierName + " is not of a supplier bro cha-cho");
+            return;
+        }
         Supplier supplier = (Supplier)personSupplier;
         if (supplier == null) {
             System.out.println("That supplier does not exist in the system, so we can't add the product.");
@@ -143,8 +168,8 @@ public class Menu {
         System.out.println("Please write each name on a seperate line, and write 'done' when finished.");
         
         do {
-            String name = in.nextLine();
-            if (name.toLowerCase().equals("done")) {
+            String name = in.nextLine().toLowerCase();
+            if (name.equals("done")) {
                 break;
             } else {
                 warehouse.removeProductByName(name);
