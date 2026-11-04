@@ -44,7 +44,7 @@ public class SeedInformation {
         toolCatalogue.addProduct(p1);
         toolCatalogue.addProduct(p2);
 
-        Supplier sup1 = new Supplier("Apex Industrial Tools", "SU301", "555-0331", "789 Supply Ln, Albuquerque, NM", toolCatalogue);
+        Supplier sup1 = new Supplier("Apex Industrial Tools", 301, "555-0331", "789 Supply Ln, Albuquerque, NM", toolCatalogue);
         personCatalogue.addPerson(sup1);
 
         Product p3 = new Product("Safety Goggles", 12.00, 1003);
@@ -54,7 +54,7 @@ public class SeedInformation {
         safetyCatalogue.addProduct(p3);
         safetyCatalogue.addProduct(p4);
 
-        Supplier sup2 = new Supplier("Shield Safety Supplies", "SU302", "555-0332", "101 Protection Way, Lubbock, TX", safetyCatalogue);
+        Supplier sup2 = new Supplier("Shield Safety Supplies", 302, "555-0332", "101 Protection Way, Lubbock, TX", safetyCatalogue);
         personCatalogue.addPerson(sup2);
 
         // -------------------------------------------------------------
