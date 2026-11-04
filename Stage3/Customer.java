@@ -13,7 +13,7 @@ public class Customer extends Person {
      * @param phoneNumber
      * @param address
      */
-    public Customer(String name, String personID, String phoneNumber, String address) {
+    public Customer(String name, int personID, String phoneNumber, String address) {
         super(name, personID, phoneNumber);
         this.address = address;
     }

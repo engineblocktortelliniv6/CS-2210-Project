@@ -126,4 +126,24 @@ public class ProductCatalogue {
             products.remove(product);
         }
     }
+
+    /**
+     * Retrieves a product from the catalogue by its index.
+     * @param index the index of the product to retrieve
+     * @return the product if found, otherwise null
+     */
+    public Product getProductByIndex(int index) {
+        if (index >= 0 && index < products.size()) {
+            return products.get(index);
+        }
+        return null;
+    }
+
+    /**
+     * Returns the number of products in the catalogue.
+     * @return the number of products in the catalogue
+     */
+    public int getSize() {
+        return products.size();
+    }
 }

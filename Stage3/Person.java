@@ -7,7 +7,7 @@
 public class Person {
 
     private String name;
-    private String personID;
+    private int personID;
     private String phoneNumber;
 
     /**
@@ -16,7 +16,7 @@ public class Person {
      * @param personID    the identifier for the person
      * @param phoneNumber the phone number of the person
      */
-    public Person(String name, String personID, String phoneNumber) {
+    public Person(String name, int personID, String phoneNumber) {
         this.name = name;
         this.personID = personID;
         this.phoneNumber = phoneNumber;
@@ -33,7 +33,7 @@ public class Person {
      * Returns the person ID of the person.
      * @return the person ID of the person
      */
-    public String getPersonId() {
+    public int getPersonId() {
         return personID;
     }
 
@@ -57,7 +57,7 @@ public class Person {
      * Sets the person ID of the person.
      * @param personID the new person ID of the person
      */
-    public void setPersonId(String personID) {
+    public void setPersonId(int personID) {
         this.personID = personID;
     }
     /**
