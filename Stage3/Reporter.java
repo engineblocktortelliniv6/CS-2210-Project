@@ -71,9 +71,7 @@ public class Reporter {
      * @param warehouse the Warehouse that we will print from
      */
     public void printWarehouseContents(Warehouse warehouse) {
-        for (Product product : warehouse.getProducts()) {
-            printProduct(product);
-        }
+        System.out.println(warehouse.getProducts());
     }
 
 }
