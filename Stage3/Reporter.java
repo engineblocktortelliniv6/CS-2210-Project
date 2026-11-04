@@ -7,8 +7,8 @@
 public class Reporter {
 
     /**
-     * This method prints an order
-     * @param order
+     * This method prints an order.
+     * @param order the order that we want to print.
      */
     public void printOrder(Order order) {
        System.out.println("Order Number: " + order.getOrderNumber());
@@ -27,8 +27,8 @@ public class Reporter {
     }
 
     /**
-     * This method prints a product
-     * @param product
+     * This method prints a product.
+     * @param product the product that we want to print.
      */
     public void printProduct(Product product) {
         System.out.println("Product Name: " + product.getName());
@@ -37,8 +37,8 @@ public class Reporter {
     }
 
     /**
-     * This method prints a person
-     * @param person
+     * This method prints a person.
+     * @param person the Person that we want to print
      */
     public void printPerson(Person person) {
         System.out.println("Person Name: " + person.getName());
@@ -47,8 +47,8 @@ public class Reporter {
     }
 
     /**
-     * This method prints all of the orders inside of the order catalogue
-     * @param orderCatalogue
+     * This method prints all of the orders inside of the order catalogue.
+     * @param orderCatalogue the OrderCatalogue that we will print from
      */
     public void printOrders(OrderCatalogue orderCatalogue) {
         for (Order order : orderCatalogue.getCatalogue()) {
@@ -57,8 +57,8 @@ public class Reporter {
     }
 
     /**
-     * This method prints all of the people inside of the person catalogue
-     * @param personCatalogue
+     * This method prints all of the people inside of the person catalogue.
+     * @param personCatalogue the PersonCatalogue that we will print from
      */
     public void printPeople(PersonCatalogue personCatalogue) {
         for (Person person : personCatalogue.getCatalogue()) {
@@ -67,12 +67,13 @@ public class Reporter {
     }
 
     /**
-     * This method prints all of the products inside of the warehouse
-     * @param warehouse
+     * This method prints all of the products inside of the warehouse.
+     * @param warehouse the Warehouse that we will print from
      */
     public void printWarehouseContents(Warehouse warehouse) {
         for (Product product : warehouse.getProducts()) {
             printProduct(product);
         }
     }
+
 }
