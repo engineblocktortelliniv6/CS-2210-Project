@@ -35,9 +35,9 @@ public class PersonCatalogue {
      * @param personID the ID of the person to search for
      * @return the person if found, otherwise null
      */
-    public Person searchForPersonByID(String personID) {
+    public Person searchForPersonByID(int personID) {
         for (int i = 0; i < persons.size(); i++) {
-            if (persons.get(i).getPersonId().equals(personID)) {
+            if (persons.get(i).getPersonId() == personID) {
                 return persons.get(i);
             }
         }
@@ -62,7 +62,7 @@ public class PersonCatalogue {
      * Prints the details of a person with the specified ID.
      * @param personID the ID of the person to print
      */
-    public void printPersonByID(String personID) {
+    public void printPersonByID(int personID) {
         Person person = searchForPersonByID(personID);
         if (person != null) {
             System.out.println("Name: " + person.getName());
@@ -92,7 +92,7 @@ public class PersonCatalogue {
      * Removes a person from the catalogue by their ID.
      * @param personID the ID of the person to remove
      */
-    public void removePersonByID(String personID) {
+    public void removePersonByID(int personID) {
         Person person = searchForPersonByID(personID);
         if (person != null) {
             persons.remove(person);
