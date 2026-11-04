@@ -35,6 +35,18 @@ public class OrderCatalogue {
     }
 
     /**
+     * Removes an order from the catalogue by its number
+     * 
+     * @param orderNumber the number of the order to remove
+     */
+    public void removeOrderByNumber(int orderNumber) {
+        Order order = searchForOrderByNumber(orderNumber);
+        if (order != null) {
+            orders.remove(order);
+        }
+    }
+
+    /**
      * Searches for an order by its number
      * 
      * @param orderNumber the number of the order to find
