@@ -146,16 +146,4 @@ public class Order {
         this.date = date;
     }
 
-    /**
-     * Adds the products to the warehouse if the
-     * order is an inbound order
-     * 
-     * @param warehouse the warehouse to which the
-     * products are added
-     */
-    public void addProductsToWarehouse(Warehouse warehouse) {
-        if (getOrderType().equals("InboundOrder")) {
-            warehouse.addProduct(products);
-        }
-    }
 }
