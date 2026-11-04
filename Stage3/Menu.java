@@ -70,20 +70,6 @@ public class Menu {
     /*-------------------------------------------*/
 
     /**
-     * Prints the ProductLocation array in the warehouse.
-     */
-    public static void printLocations() {
-        
-    }
-
-    /**
-     * Asks user for the name of a ProductLocation, then prints its products.
-     */
-    public static void printProducts() {
-
-    }
-
-    /**
      * Asks user for a product,
      * then prints the product.
      */
