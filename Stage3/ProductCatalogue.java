@@ -90,4 +90,26 @@ public class ProductCatalogue {
             System.out.println("Product with name " + name + " not found.");
         }
     }
+    
+    /**
+     * Removes a product from the catalogue by its name.
+     * @param name the name of the product to remove
+     */
+        public void removeProductByName(String name) {
+            Product product = searchForProductByName(name);
+            if (product != null) {
+                products.remove(product);
+            }
+        }
+
+    /**
+     * Removes a product from the catalogue by its ID.
+     * @param productID the ID of the product to remove
+     */
+    public void removeProductByID(int productID) {
+        Product product = searchForProductByID(productID);
+        if (product != null) {
+            products.remove(product);
+        }
+    }
 }
