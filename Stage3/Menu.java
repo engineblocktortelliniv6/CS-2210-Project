@@ -101,14 +101,15 @@ public class Menu {
         System.out.println("To add a product, we need to know from which supplier the product that you want to add comes from.");
         System.out.println("What is the name of the supplier?");
         String supplierName = in.nextLine();
-        Person supplier = personCatalogue.searchForPersonByName(supplierName);
+        Person personSupplier = personCatalogue.searchForPersonByName(supplierName);
+        Supplier supplier = (Supplier)personSupplier;
         if (supplier == null) {
             System.out.println("That supplier does not exist in the system, so we can't add the product.");
             return;
         }
 
         // get the arraylist of products that the supplier offers
-        ArrayList<Product> products = supplier.getProducts();
+        ProductCatalogue products = supplier.getProducts();
         if (products.size() == 0) {
             System.out.println("That supplier does not offer any products, so you can't choose which one to add.");
             return;
@@ -138,7 +139,18 @@ public class Menu {
      * Displays a message indicating that the item has been removed successfully.
      */
     public static void removeProducts() {
-        ProductCatalogue productCatalogue = new ProductCatalogue();
+        System.out.println("What are the names of the products that you would like to remove?");
+        System.out.println("Please write each name on a seperate line, and write 'done' when finished.");
+        
+        do {
+            String name = in.nextLine();
+            if (name.toLowerCase().equals("done")) {
+                break;
+            } else {
+                warehouse.removeProductByName(name);
+                System.out.println(name + " removed successfully.");
+            }
+        } while (true);
     }
 
     /*-------------------------------------------*/
