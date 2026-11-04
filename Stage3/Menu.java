@@ -73,7 +73,7 @@ public class Menu {
      * Prints the ProductLocation array in the warehouse.
      */
     public static void printLocations() {
-
+        
     }
 
     /**
@@ -95,8 +95,6 @@ public class Menu {
      * Asks the user for the name of a Supplier,
      * and then display the products offered by that supplier,
      * and then ask the user which product they want to add.
-     * Then ask the user which ProductLocation they want to add it to,
-     * and then append it to the ProductLocation.
      * Displays a message indicating that the item has been added successfully.
      */
     public static void addProduct() {
@@ -131,21 +129,16 @@ public class Menu {
             System.out.println("That supplier does not have any " + productString + ", so we can't add it.");
         }
 
-        System.out.println("To add a product, we need to know which location you want to add it to.");
-        System.out.println("Which location do you want to add the product to?");
-        
-
         System.out.println(productString + " added successfully.");
     }
 
     /**
-     * Asks the user for the name of a ProductLocation,
-     * and then for the names related to some Product(s),
-     * and removes those Product(s) from that ProductLocation.
+     * Asks the user for the names related to some Product(s),
+     * and removes those Product(s) from the Warehouse.
      * Displays a message indicating that the item has been removed successfully.
      */
     public static void removeProducts() {
-
+        ProductCatalogue productCatalogue = new ProductCatalogue();
     }
 
     /*-------------------------------------------*/
