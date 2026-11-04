@@ -43,6 +43,9 @@ public class ProductCatalogue {
             if (products.get(i).getProductID() == productID){
                 return products.get(i);
             }
+            else {
+                System.out.println("Product not found");
+            }
         }
         return null;
     }
@@ -56,6 +59,9 @@ public class ProductCatalogue {
         for (int i = 0; i < products.size(); i++){
             if (products.get(i).getName().equalsIgnoreCase(name)){
                 return products.get(i);
+            }
+            else {
+                System.out.println("Product not found");
             }
         }
         return null;
