@@ -33,18 +33,30 @@ public class ProductCatalogue {
         products.add(product);
     }
 
+    /**Tells the user that a given product was not found.
+     * @param name the name of the product not found. */
+    private void alertProductNotFound(String name) {
+        System.out.println("The product '" + name + "' does not exist.");
+    }
+    
+    /**Tells the user that a given product was not found.
+     * @param productID the ID of the product not found. */
+    private void alertProductNotFound(int productID) {
+        System.out.println("The product '" + productID + "' does not exist.");
+    }
+
     /**
      * Searches for a product by their ID.
      * @param productID the ID of the product to search for
      * @return the product if found, otherwise null
      */
-    public Product searchForProductByID(int productID){
+    public Product searchForProductByID(int productID) {
         for (int i = 0; i < products.size(); i++){
-            if (products.get(i).getProductID() == productID){
+            if (products.get(i).getProductID() == productID) {
                 return products.get(i);
             }
             else {
-                System.out.println("Product not found");
+                alertProductNotFound(productID);
             }
         }
         return null;
@@ -55,13 +67,13 @@ public class ProductCatalogue {
      * @param name the name of the product to search for
      * @return the product if found, otherwise null
      */
-    public Product searchForProductByName(String name){
+    public Product searchForProductByName(String name) {
         for (int i = 0; i < products.size(); i++){
-            if (products.get(i).getName().equalsIgnoreCase(name)){
+            if (products.get(i).getName().equalsIgnoreCase(name)) {
                 return products.get(i);
             }
             else {
-                System.out.println("Product not found");
+                alertProductNotFound(name);
             }
         }
         return null;
@@ -77,8 +89,6 @@ public class ProductCatalogue {
             System.out.println("Product Name: " + product.getName());
             System.out.println("Product ID: " + product.getProductID());
             System.out.println("Product Price: $" + product.getPrice());
-        } else {
-            System.out.println("Product with ID " + productID + " not found.");
         }
     }
 
@@ -92,8 +102,6 @@ public class ProductCatalogue {
             System.out.println("Product Name: " + product.getName());
             System.out.println("Product ID: " + product.getProductID());
             System.out.println("Product Price: $" + product.getPrice());
-        } else {
-            System.out.println("Product with name " + name + " not found.");
         }
     }
     
