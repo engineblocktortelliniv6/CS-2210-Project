@@ -87,4 +87,26 @@ public class PersonCatalogue {
             System.out.println("Person with name " + name + " not found.");
         }
     }
+
+    /**
+     * Removes a person from the catalogue by their ID.
+     * @param personID the ID of the person to remove
+     */
+    public void removePersonByID(String personID) {
+        Person person = searchForPersonByID(personID);
+        if (person != null) {
+            persons.remove(person);
+        }
+    }
+
+    /**
+     * Removes a person from the catalogue by their name.
+     * @param name the name of the person to remove
+     */
+    public void removePersonByName(String name) {
+        Person person = searchForPersonByName(name);
+        if (person != null) {
+            persons.remove(person);
+        }
+    }
 }
