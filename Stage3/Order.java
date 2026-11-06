@@ -8,7 +8,7 @@
 public class Order {
     private int orderID;
     private Product products;
-    private boolean orderStatus;
+    private DeliveryStatus orderStatus;
     private Person orderer;
     private Staff staff;
     private String date;
@@ -25,11 +25,11 @@ public class Order {
      *                    to the order
      * @param date        the date of the order
      */
-    public Order(int orderID, Product products, boolean orderStatus,
+    public Order(int orderID, Product products, DeliveryStatus orderStatus,
             Person orderer, Staff staff, String date) {
         this.orderID = orderID;
         this.products = products;
-        this.orderStatus = false;
+        this.orderStatus = DeliveryStatus.NULL;
         this.orderer = orderer;
         this.staff = staff;
         this.date = date;
@@ -78,7 +78,7 @@ public class Order {
      * 
      * @return true if the order is done, false otherwise
      */
-    public boolean getOrderStatus() {
+    public DeliveryStatus getOrderStatus() {
         return orderStatus;
     }
 
@@ -136,7 +136,7 @@ public class Order {
      * Sets the status of the order
      * @param orderStatus the new order status
      */
-    public void setOrderStatus(boolean orderStatus) {
+    public void setOrderStatus(DeliveryStatus orderStatus) {
         this.orderStatus = orderStatus;
     }
 

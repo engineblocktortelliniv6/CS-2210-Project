@@ -13,11 +13,16 @@ public class Reporter {
     public void printOrder(Order order) {
        System.out.println("Order ID: " + order.getOrderID());
        System.out.println("Order Date: " + order.getOrderDate());
-       if (order.getOrderStatus() == true) {
-        //Order status is a boolean variable. Printing based on if it is false(pending) true(complete)
-        System.out.println("Order Status: Completed");
-       } else {
-        System.out.println("Order Status: Pending");
+       switch (order.getOrderStatus()) {
+            case DeliveryStatus.DELIVERED:
+                System.out.println("Order Status: delivered");
+            break;
+            case DeliveryStatus.IS_BEING_DELIVERED:
+                System.out.println("Order Status: is being delivered");
+            break;
+            case DeliveryStatus.NULL:
+                System.out.println("Order Status: Not set yet.");
+            break;
        }
        System.out.println("Products: " + order.getProducts());
        System.out.println("Orderer: " + order.getOrderer());
