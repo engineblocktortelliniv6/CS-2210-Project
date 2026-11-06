@@ -37,6 +37,24 @@ public class Warehouse implements Serializable {
         }
     }
 
+     /**
+     * Removes a product object from the warehouse
+     * @param product the product to remove
+     */
+    
+    public void removeProduct(Product product) {
+        products.remove(product); 
+    }
+
+    /**
+     * Removes products from the warehouse
+     * @param catalogue the catalogue containing products to remove
+     */
+    public void removeProducts(ProductCatalogue catalogue) {
+    for (Product product : catalogue.getCatalogue()) {
+    removeProduct(product); }
+    }
+
     /**Uses removeProductByID() from ProductCatalogue.
      * @param productID */
     public void removeProductByID(int productID) {
