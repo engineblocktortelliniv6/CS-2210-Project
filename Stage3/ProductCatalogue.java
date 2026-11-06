@@ -141,9 +141,19 @@ public class ProductCatalogue {
 
     /**
      * Returns the number of products in the catalogue.
-     * @return the number of products in the catalogue
+     * @return the number of products in the catalogue.
      */
-    public int getSize() {
+    public int size() {
         return products.size();
     }
+
+    /**
+     * Returns a product at an index.
+     * @param index the index at which we are retrieving a product.
+     * @return the product from the ArrayList that we are retreieving.
+     */
+    public Product get(int index) {
+        return products.get(index);
+    }
+
 }
