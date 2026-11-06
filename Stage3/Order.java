@@ -9,7 +9,7 @@ import java.io.Serializable;
  */
 public class Order implements Serializable {
     private int orderID;
-    private Product products;
+    private ProductCatalogue products;
     private DeliveryStatus orderStatus;
     private Person orderer;
     private Staff staff;
@@ -27,7 +27,7 @@ public class Order implements Serializable {
      *                    to the order
      * @param date        the date of the order
      */
-    public Order(int orderID, Product products,
+    public Order(int orderID, ProductCatalogue products,
             Person orderer, Staff staff, String date) {
         this.orderID = orderID;
         this.products = products;
@@ -51,7 +51,7 @@ public class Order implements Serializable {
      * 
      * @return the products in the order
      */
-    public Product getProducts() {
+    public ProductCatalogue getProducts() {
         return products;
     }
 
@@ -108,46 +108,11 @@ public class Order implements Serializable {
     }
 
     /**
-     * Sets the products included in the order
-     * 
-     * @param products the new products
-     */
-    public void setProducts(Product products) {
-        this.products = products;
-    }
-
-    /**
-     * Sets the person who placed the order
-     * 
-     * @param orderer the new orderer
-     */
-    public void setOrderer(Person orderer) {
-        this.orderer = orderer;
-    }
-
-    /**
-     * Sets the staff member assigned to the order
-     * 
-     * @param staff the staff member that created the order
-     */
-    public void setStaff(Staff staff) {
-        this.staff = staff;
-    }
-
-    /**
      * Sets the status of the order
      * @param orderStatus the new order status
      */
     public void setOrderStatus(DeliveryStatus orderStatus) {
         this.orderStatus = orderStatus;
-    }
-
-    /**
-     * Sets the date of an order.
-     * @param date the new date of this order.
-     */
-    public void setOrderDate(String date) {
-        this.date = date;
     }
 
 }
