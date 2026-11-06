@@ -109,4 +109,21 @@ public class PersonCatalogue {
             persons.remove(person);
         }
     }
+
+    /**
+     * Returns the number of people in the person catalogue.
+     * @return the number of people in the person catalogue
+     */
+    public int Size() {
+        return persons.size();
+    }
+
+    /**
+     * Returns the person at the specified index in the catalogue.
+     * @param index the index of the person to return
+     * @return the person at the specified index
+     */
+    public Person get(int index) {
+        return persons.get(index);
+    }
 }
