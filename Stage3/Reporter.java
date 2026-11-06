@@ -21,7 +21,7 @@ public class Reporter {
        }
        System.out.println("Products: " + order.getProducts());
        System.out.println("Orderer: " + order.getOrderer());
-       System.out.println("Staff Name: " + order.getStaffName());
+       System.out.println("Staff Name: " + order.getStaff().getName());
        System.out.println("Order Status: " + order.getOrderStatus());
        System.out.println("Order Type: " + order.getOrderType());
     }

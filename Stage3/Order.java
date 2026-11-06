@@ -10,7 +10,7 @@ public class Order {
     private Product products;
     private boolean orderStatus;
     private Person orderer;
-    private Person staffName;
+    private Staff staff;
     private String date;
 
     /**
@@ -21,18 +21,18 @@ public class Order {
      * @param products    the products included in the order
      * @param orderStatus the status of the order
      * @param orderer     the person who placed an order
-     * @param staffName   the name of a staff member assigned
+     * @param staff       the staff member that created the order
      *                    to the order
      * @param date        the date of the order
      */
 
     public Order(int orderNumber, Product products, boolean orderStatus,
-            Person orderer, Person staffName, String date) {
+            Person orderer, Staff staff, String date) {
         this.orderNumber = orderNumber;
         this.products = products;
         this.orderStatus = false;
         this.orderer = orderer;
-        this.staffName = staffName;
+        this.staff = staff;
         this.date = date;
     }
 
@@ -66,10 +66,10 @@ public class Order {
     /**
      * Gets the staff member assigned to the order
      * 
-     * @return the staff member's name
+     * @return the staff member that created the order
      */
-    public Person getStaffName() {
-        return staffName;
+    public Staff getStaff() {
+        return staff;
     }
 
     // setter needed
@@ -127,11 +127,10 @@ public class Order {
     /**
      * Sets the staff member assigned to the order
      * 
-     * @param staffName the new staff member's name
-     * associated with the order
+     * @param staff the staff member that created the order
      */
-    public void setStaffName(Person staffName) {
-        this.staffName = staffName;
+    public void setStaff(Staff staff) {
+        this.staff = staff;
     }
 
     /**
