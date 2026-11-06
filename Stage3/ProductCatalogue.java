@@ -33,6 +33,15 @@ public class ProductCatalogue {
         products.add(product);
     }
 
+    /**
+     * Removes a product from the catalogue
+     * @param product the product to remove
+     */
+
+    public void removeProduct(Product product) {
+       products.removeProduct(product); 
+    }
+
     /**Tells the user that a given product was not found.
      * @param name the name of the product not found. */
     private void alertProductNotFound(String name) {
