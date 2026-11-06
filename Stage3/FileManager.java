@@ -1,34 +1,51 @@
+import java.io.*;
+
 /**
- * @author Xavier Cheney
- * Date: October 21, 2026
- * This is a separate class for managing all of the files because Dr. Eduardo requesteth so.
+ * @author Nicholas Snyder
+ * Date: November 6, 2026
+ * This is a separate class for managing all of the files through saving and loading.
  */
 public class FileManager {
-
-    /*-----------------------------------------------------------*/
-    // THESE are THE METHODS for THE SAVING and THE LOADING of DATA
-    /*-----------------------------------------------------------*/
+    public static final String FILE_NAME = "data.dat";
 
     /**
-     * Checks if there is a txt with program data,
-     * and if so, then reads the data, and returns objects with the data.
-     * @return a Warehouse, a OrderCatalogue, and a PersonCatalogue
+     * Saves the current state of the warehouse.
+     * If the file is saved successfully, a message will be displayed.
+     * If there is an error, a message will be displayed.
+     * @param w the warehouse to save
+     * @param o the order catalogue to save
+     * @param p the person catalogue to save
      */
-    public static void loadEverything() {
-        //TOD: implement functionality
-        System.out.println("TODO: implement functionality: we have not loaded everything.");
+    public static void saveEverything(Warehouse w, OrderCatalogue o, PersonCatalogue p) {
+        try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(FILE_NAME))) {
+            out.writeObject(w);
+            out.writeObject(o);
+            out.writeObject(p);
+            System.out.println("All data saved successfully.");
+        } catch (IOException e) {
+            System.out.println("Error saving file: " + e.getMessage());
+        }
     }
 
     /**
-     * Takes some objects, and makes a txt
-     * @param w the Warehouse object to save.
-     * @param o the OrderCatalogue object to save.
-     * @param p the PersonCatalogue object to save.
-     * Warehouse w, OrderCatalogue o, PersonCatalogue p
+     * Checks if data.dat exists. If so, restores the serialized catalogues.
+     * @return Object array [Warehouse, OrderCatalogue, PersonCatalogue], or null if file does not exist.
      */
-    public static void saveEverything() {
-        //TOD: implement functionality
-        System.out.println("TODO: implement functionality: we have not saved everything.");
-    }
+    public static Object[] loadEverything() {
+        File file = new File(FILE_NAME);
+        if (!file.exists()) {
+            return null; // Signals that no save file exists
+        }
 
+        try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(file))) {
+            Warehouse w = (Warehouse) in.readObject();
+            OrderCatalogue o = (OrderCatalogue) in.readObject();
+            PersonCatalogue p = (PersonCatalogue) in.readObject();
+            System.out.println("Data loaded successfully from " + FILE_NAME);
+            return new Object[]{w, o, p};
+        } catch (IOException | ClassNotFoundException e) {
+            System.out.println("Error loading file: " + e.getMessage());
+            return null;
+        }
+    }
 }

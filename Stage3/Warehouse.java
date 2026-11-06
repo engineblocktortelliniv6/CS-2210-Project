@@ -1,10 +1,12 @@
+import java.io.Serializable;
+
 /**
  * <p>This class represents a warehouse that manages a collection of products.
  * It wraps the ProductCatalogue class to provide functionality.
  * @author Xavier Cheney
  * @version 2.0 on November 4, 2026
  */
-public class Warehouse {
+public class Warehouse implements Serializable {
     private ProductCatalogue products;
 
     /**Constructs a new Warehouse object, initializing the list of products. */
@@ -22,6 +24,35 @@ public class Warehouse {
      * @param product the product that we want to add. */
     public void addProduct(Product product) {
         products.addProduct(product);
+    }
+
+    /**
+     * Adds a product to the warehouse
+     * @param catalogue the catalogue containing products to add
+     */
+
+    public void addProducts(ProductCatalogue catalogue) {
+        for (Product product : catalogue.getCatalogue()) {
+            addProduct(product);
+        }
+    }
+
+     /**
+     * Removes a product object from the warehouse
+     * @param product the product to remove
+     */
+    
+    public void removeProduct(Product product) {
+        products.remove(product); 
+    }
+
+    /**
+     * Removes products from the warehouse
+     * @param catalogue the catalogue containing products to remove
+     */
+    public void removeProducts(ProductCatalogue catalogue) {
+    for (Product product : catalogue.getCatalogue()) {
+    removeProduct(product); }
     }
 
     /**Uses removeProductByID() from ProductCatalogue.

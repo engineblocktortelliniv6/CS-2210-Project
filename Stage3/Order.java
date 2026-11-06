@@ -1,11 +1,13 @@
-/** 
+import java.io.Serializable;
+
+/**
  * Represents an order and manages its information
  * and products
  * @author Tamara Galstian
  * Created on October 21, 2026
  * 
  */
-public class Order {
+public class Order implements Serializable {
     private int orderID;
     private Product products;
     private DeliveryStatus orderStatus;
