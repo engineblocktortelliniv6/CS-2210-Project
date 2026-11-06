@@ -64,9 +64,9 @@ public class Menu {
         }
         
         System.out.println("What are the products?");
-        ProductCatalogue catalogue;
+        ProductCatalogue catalogue = new ProductCatalogue();
         System.out.println("Who needs the products for the order");
-        Person orderer;
+        Person orderer = new Person("", 30, "3030");
         System.out.println("What is the date?");
         String date = in.nextLine();
 
