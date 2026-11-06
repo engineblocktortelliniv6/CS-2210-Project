@@ -25,7 +25,6 @@ public class Order {
      *                    to the order
      * @param date        the date of the order
      */
-
     public Order(int orderNumber, Product products, boolean orderStatus,
             Person orderer, Staff staff, String date) {
         this.orderNumber = orderNumber;
