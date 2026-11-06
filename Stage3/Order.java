@@ -27,7 +27,7 @@ public class Order implements Serializable {
      *                    to the order
      * @param date        the date of the order
      */
-    public Order(int orderID, Product products, DeliveryStatus orderStatus,
+    public Order(int orderID, Product products,
             Person orderer, Staff staff, String date) {
         this.orderID = orderID;
         this.products = products;
