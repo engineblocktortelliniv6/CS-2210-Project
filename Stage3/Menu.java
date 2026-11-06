@@ -60,7 +60,7 @@ public class Menu {
             System.out.println("What is the ID?");
             ID = in.nextInt();
             in.nextLine(); // consume the leftover newline
-            
+            break;
         }
         
         System.out.println("What are the products?");
