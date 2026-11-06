@@ -13,6 +13,7 @@ public class Menu {
     public static Warehouse warehouse;
     public static OrderCatalogue orderCatalogue;
     public static PersonCatalogue personCatalogue;
+    public static Order holdOrder;
 
     /*----------------------------------------------------------*/
     // THESE are THE VARIABLES and THE METHODS for THE MENU SYSTEM
@@ -24,11 +25,13 @@ public class Menu {
     public static final String[] WAREHOUSE_MENU_STRINGS = {"Display Locations", "Display a Location's Products", "Find Product", "Add Product to Location", "Remove Product from Location", SAVE_EVERYTHING};
     public static final String[] PERSON_MENU_STRINGS = {"Display Supplier's Products", "Display a Person's Info", "Add Person", "Remove Person", "Change a Person's Information", "Change a Supplier's Information", "Change a Customer's Information", "Change a Staff's Information", SAVE_EVERYTHING};
     public static final String[] ADD_PERSON_MENU_STRINGS = {"Add Staff", "Add Supplier", "Add Customer"};
+    public static final String[] SET_ORDER_STATUS_STRINGS = {"delivered", "is being delivered"};
     public static final Runnable[] MENU_RUNNABLES = {Menu::orderMenu, Menu::warehouseMenu, Menu::personMenu, FileManager::saveEverything};
     public static final Runnable[] ORDER_MENU_RUNNABLES = {Menu::printOrders, Menu::addOrder, Menu::updateOrderStatus, FileManager::saveEverything};
     public static final Runnable[] WAREHOUSE_MENU_RUNNABLES = {Menu::findProduct, Menu::addProduct, Menu::removeProducts, FileManager::saveEverything};
     public static final Runnable[] PERSON_MENU_RUNNABLES = {Menu::printProductsOffered, Menu::printPerson, Menu::addPerson, Menu::removePerson, Menu::changePersonInfo, Menu::changeSupplierInfo, Menu::changeCustomerInfo, Menu::changeStaffInfo, FileManager::saveEverything};
     public static final Runnable[] ADD_PERSON_MENU_RUNNABLES = {Menu::addStaff, Menu::addSupplier, Menu::addCustomer};
+    public static final Runnable[] SET_ORDER_STATUS_RUNNABLES = {Menu::setOrderToDelivered, Menu::setOrderToBeingDelivered};
     public static void menu() { genericMenu("Main Menu", MENU_STRINGS, MENU_RUNNABLES); }
     public static void orderMenu() { genericMenu("Order Menu", ORDER_MENU_STRINGS, ORDER_MENU_RUNNABLES); }
     public static void warehouseMenu() { genericMenu("Warehouse Menu", WAREHOUSE_MENU_STRINGS, WAREHOUSE_MENU_RUNNABLES); }
@@ -44,7 +47,6 @@ public class Menu {
      */
     public static void printOrders() {
         reporter.printOrders(orderCatalogue);
-        System.out.println("I am printing the orders ;)");
     }
 
     /**
@@ -55,15 +57,33 @@ public class Menu {
         System.out.println("What is the information");
     }
 
-    /**
-     * Asks the user for the orderNumber of an order,
+    /**First, we display the information about all orders.
+     * Then we ask the user for the orderNumber of an order,
      * and then displays its status.
      * Next, the method asks the user whether or not the order should be set to
-     * 1. "delivered" or 2. "is being delivered".
-     */
+     * 1. "delivered" or 2. "is being delivered". */
     public static void updateOrderStatus() {
-
+        // displays all orders
+        System.out.println("These are all of the orders that we have in the order catalogue:");        
+        reporter.printOrders(orderCatalogue);
+        System.out.println();
+        // get the specific order we're talkin' about
+        System.out.println("In order to set the delivery status, please input the order's ID:");
+        int ID = in.nextInt();
+        in.nextLine(); // consume the leftover newline
+        // detect the user actually gave a valid order
+        Order order = orderCatalogue.searchForOrderByID(ID);
+        holdOrder = order;
+        if (order == null) {
+            System.out.println("No such order exists in the catalogue with the ID: " + ID);
+            return;
+        }
+        // change the order's status
+        genericMenu("What is the new status of the order? Quit when finished.", SET_ORDER_STATUS_STRINGS, SET_ORDER_STATUS_RUNNABLES);
     }
+
+    public static void setOrderToDelivered() { holdOrder.setOrderStatus(DeliveryStatus.DELIVERED); }
+    public static void setOrderToBeingDelivered() { holdOrder.setOrderStatus(DeliveryStatus.IS_BEING_DELIVERED); }
 
     /*-------------------------------------------*/
     // THESE are THE METHODS for THE WAREHOUSE MENU
@@ -90,7 +110,7 @@ public class Menu {
             System.out.println("What is the name of the product that you wish to search for?");
             int ID = in.nextInt();
             in.nextLine(); // consume the leftover newline
-            warehouse.removeProductByID(ID)
+            warehouse.removeProductByID(ID);
             break;
         default:
             System.out.println("We can't search by whatever attribute '" + mode + "' is, broski...");
@@ -110,7 +130,7 @@ public class Menu {
         String supplierName = in.nextLine();
         Person personSupplier = personCatalogue.searchForPersonByName(supplierName);
         if (personSupplier instanceof Supplier) {} else {
-            System.out.println("The name " + supplierName + " is not of a supplier bro cha-cho");
+            System.out.println("The name " + supplierName + " is not of a supplier bro cha-cho.");
             return;
         }
         Supplier supplier = (Supplier)personSupplier;
@@ -272,7 +292,6 @@ public class Menu {
         do {
             // display the menu
             System.out.println("---" + menuName + "---");
-            
             for (i = 0; i < menuLength; i++ ) {
                 System.out.println(i + ". " + menuArguments[i]);
             }
