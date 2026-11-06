@@ -37,14 +37,13 @@ public class Warehouse implements Serializable {
         }
     }
 
-     /**
-     * Removes a product object from the warehouse
+    /**
+     * Removes a product object from the warehouse
      * @param product the product to remove
      */
-    
-    public void removeProduct(Product product) {
-        products.remove(product); 
-    }
+    public void removeProduct(Product product) {
+        products.removeProduct(product);
+    }
 
     /**
      * Removes products from the warehouse
