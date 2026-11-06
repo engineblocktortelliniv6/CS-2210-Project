@@ -145,29 +145,5 @@ public class Order {
     public void setOrderDate(String date) {
         this.date = date;
     }
-    /**
-     * Removes the products from the warehouse if
-     * the order is an outbound order
-     * 
-     * @param warehouse the warehouse from which the
-     * products are removed
-     */
-    public void removeProductsFromWarehouse(Warehouse warehouse) {
-        if (getOrderType().equals("OutboundOrder")) {
-            warehouse.removeProduct(products);
-        }
-    }
 
-    /**
-     * Adds the products to the warehouse if the
-     * order is an inbound order
-     * 
-     * @param warehouse the warehouse to which the
-     * products are added
-     */
-    public void addProductsToWarehouse(Warehouse warehouse) {
-        if (getOrderType().equals("InboundOrder")) {
-            warehouse.addProduct(products);
-        }
-    }
 }
