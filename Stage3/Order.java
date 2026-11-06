@@ -6,7 +6,7 @@
  * 
  */
 public class Order {
-    private int orderNumber;
+    private int orderID;
     private Product products;
     private boolean orderStatus;
     private Person orderer;
@@ -14,10 +14,10 @@ public class Order {
     private String date;
 
     /**
-     * Creates an order with its number, products, status,
+     * Creates an order with its ID, products, status,
      * orderer, staff member's name associated with it, and date
      * 
-     * @param orderNumber the order number
+     * @param orderID     the order ID
      * @param products    the products included in the order
      * @param orderStatus the status of the order
      * @param orderer     the person who placed an order
@@ -25,9 +25,9 @@ public class Order {
      *                    to the order
      * @param date        the date of the order
      */
-    public Order(int orderNumber, Product products, boolean orderStatus,
+    public Order(int orderID, Product products, boolean orderStatus,
             Person orderer, Staff staff, String date) {
-        this.orderNumber = orderNumber;
+        this.orderID = orderID;
         this.products = products;
         this.orderStatus = false;
         this.orderer = orderer;
@@ -36,12 +36,12 @@ public class Order {
     }
 
     /**
-     * Gets order number
+     * Gets order ID
      * 
-     * @return order number
+     * @return order ID
      */
-    public int getOrderNumber() {
-        return orderNumber;
+    public int getOrderID() {
+        return orderID;
     }
 
     /**
@@ -97,12 +97,12 @@ public class Order {
     }
 
     /**
-     * Sets the order number
+     * Sets the order ID
      * 
-     * @param orderNumber the new order number
+     * @param orderID the new order ID
      */
-    public void setOrder(int orderNumber) {
-        this.orderNumber = orderNumber;
+    public void setOrder(int orderID) {
+        this.orderID = orderID;
     }
 
     /**
@@ -140,6 +140,10 @@ public class Order {
         this.orderStatus = orderStatus;
     }
 
+    /**
+     * Sets the date of an order.
+     * @param date the new date of this order.
+     */
     public void setOrderDate(String date) {
         this.date = date;
     }

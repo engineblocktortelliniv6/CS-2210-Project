@@ -11,7 +11,7 @@ public class Reporter {
      * @param order the order that we want to print.
      */
     public void printOrder(Order order) {
-       System.out.println("Order Number: " + order.getOrderNumber());
+       System.out.println("Order ID: " + order.getOrderID());
        System.out.println("Order Date: " + order.getOrderDate());
        if (order.getOrderStatus() == true) {
         //Order status is a boolean variable. Printing based on if it is false(pending) true(complete)

@@ -35,26 +35,26 @@ public class OrderCatalogue {
     }
 
     /**
-     * Removes an order from the catalogue by its number
+     * Removes an order from the catalogue by its ID
      * 
-     * @param orderNumber the number of the order to remove
+     * @param orderID the ID of the order to remove
      */
-    public void removeOrderByNumber(int orderNumber) {
-        Order order = searchForOrderByNumber(orderNumber);
+    public void removeOrderByID(int orderID) {
+        Order order = searchForOrderByID(orderID);
         if (order != null) {
             orders.remove(order);
         }
     }
 
     /**
-     * Searches for an order by its number
+     * Searches for an order by its ID
      * 
-     * @param orderNumber the number of the order to find
+     * @param orderID the ID of the order to find
      * @return the order if found, or null if no such order exists
      */
-    public Order searchForOrderByNumber(int orderNumber) {
+    public Order searchForOrderByID(int orderID) {
         for (int i = 0; i < orders.size(); i++) {
-            if (orders.get(i).getOrderNumber() == (orderNumber)) {
+            if (orders.get(i).getOrderID() == (orderID)) {
                 return orders.get(i);
             }
         }
