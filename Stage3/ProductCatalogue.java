@@ -39,7 +39,7 @@ public class ProductCatalogue {
      */
 
     public void removeProduct(Product product) {
-       products.removeProduct(product); 
+       products.remove(product); 
     }
 
     /**Tells the user that a given product was not found.
