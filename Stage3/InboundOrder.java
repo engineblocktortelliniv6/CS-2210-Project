@@ -11,7 +11,7 @@ public class InboundOrder extends Order {
  * @param orderer the supplier providing the products 
  */
    public InboundOrder(Supplier orderer) {
-      super(0, null, false, 
+      super(0, null, 
       orderer, null, "");
       this.orderer = orderer;
    }
