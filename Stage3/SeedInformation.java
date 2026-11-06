@@ -71,17 +71,17 @@ public class SeedInformation {
         InboundOrder inOrder = new InboundOrder(sup1);
         inOrder.setOrder(4001);
         inOrder.setProducts(p2);
-        inOrder.setStaffName(manager);
+        inOrder.setStaff(manager);
         inOrder.setOrderDate("2026-10-25");
-        inOrder.setOrderStatus(true); // Completed delivery
+        inOrder.setOrderStatus(DeliveryStatus.DELIVERED); // Completed delivery
         orderCatalogue.addOrder(inOrder);
 
         OutboundOrder outOrder = new OutboundOrder(cust1.getAddress(), cust1);
         outOrder.setOrder(4002);
         outOrder.setProducts(p1);
-        outOrder.setStaffName(clerk);
+        outOrder.setStaff(clerk);
         outOrder.setOrderDate("2026-11-01");
-        outOrder.setOrderStatus(false); // Pending delivery
+        outOrder.setOrderStatus(DeliveryStatus.IS_BEING_DELIVERED); // Pending delivery
         orderCatalogue.addOrder(outOrder);
     }
 }

@@ -18,7 +18,7 @@ public class OutboundOrder extends Order {
      */
 
     public OutboundOrder(String address, Customer orderer) {
-        super(0, null, false, orderer, null, "");
+        super(0, null, orderer, null, "");
         this.address = address;
         this.orderer = orderer;
     }
@@ -68,7 +68,7 @@ public class OutboundOrder extends Order {
      */
     public void removeProductsFromWarehouse(Warehouse warehouse) {
         if (getOrderType().equals("OutboundOrder")) {
-            warehouse.removeProduct(products);
+            warehouse.removeProduct(getProducts());
         }
         
     }
