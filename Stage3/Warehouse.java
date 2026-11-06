@@ -24,6 +24,17 @@ public class Warehouse {
         products.addProduct(product);
     }
 
+    /**
+     * Adds a product to the warehouse
+     * @param catalogue the catalogue containing products to add
+     */
+
+    public void addProducts(ProductCatalogue catalogue) {
+        for (Product product : catalogue.getCatalogue()) {
+            addProduct(product);
+        }
+    }
+
     /**Uses removeProductByID() from ProductCatalogue.
      * @param productID */
     public void removeProductByID(int productID) {
