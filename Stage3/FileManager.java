@@ -7,6 +7,10 @@ import java.io.*;
  */
 public class FileManager {
     public static final String FILE_NAME = "data.dat";
+    
+    public static Warehouse warehouse;
+    public static OrderCatalogue orderCatalogue;
+    public static PersonCatalogue personCatalogue;
 
     /**
      * Saves the current state of the warehouse.
@@ -16,11 +20,11 @@ public class FileManager {
      * @param o the order catalogue to save
      * @param p the person catalogue to save
      */
-    public static void saveEverything(Warehouse w, OrderCatalogue o, PersonCatalogue p) {
+    public static void saveEverything() {
         try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(FILE_NAME))) {
-            out.writeObject(w);
-            out.writeObject(o);
-            out.writeObject(p);
+            out.writeObject(warehouse);
+            out.writeObject(orderCatalogue);
+            out.writeObject(personCatalogue);
             System.out.println("All data saved successfully.");
         } catch (IOException e) {
             System.out.println("Error saving file: " + e.getMessage());
