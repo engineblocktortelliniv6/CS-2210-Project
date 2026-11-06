@@ -1,11 +1,12 @@
 import java.util.ArrayList;
+import java.io.Serializable;
 
 /**
  * This class represents a catalogue of persons, allowing for the addition, searching, and printing of person details.
  * @author Nicholas Snyder
  * Created on October 14, 2026
  */
-public class PersonCatalogue {
+public class PersonCatalogue implements Serializable {
     private ArrayList<Person> persons;
 
     /**

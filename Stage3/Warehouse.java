@@ -1,10 +1,12 @@
+import java.io.Serializable;
+
 /**
  * <p>This class represents a warehouse that manages a collection of products.
  * It wraps the ProductCatalogue class to provide functionality.
  * @author Xavier Cheney
  * @version 2.0 on November 4, 2026
  */
-public class Warehouse {
+public class Warehouse implements Serializable {
     private ProductCatalogue products;
 
     /**Constructs a new Warehouse object, initializing the list of products. */

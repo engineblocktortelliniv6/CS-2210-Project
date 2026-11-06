@@ -1,8 +1,10 @@
-/** This class represents a product in the inventory system 
+import java.io.Serializable;
+
+/** This class represents a product in the inventory system
 * @author Nicholas Snyder
 * Created on October 17, 2026
 */
-public class Product {
+public class Product implements Serializable {
     String name;
     double price;
     int productID;

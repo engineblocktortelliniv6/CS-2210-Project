@@ -1,10 +1,12 @@
+import java.io.Serializable;
+
 /**
  * This class represents a person with a name, person ID, and phone number.
  * @Author Nicholas Snyder
  * Date: October 14, 2026
  */
 
-public class Person {
+public class Person implements Serializable {
 
     private String name;
     private int personID;

@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.io.Serializable;
 
 /**
  * Manages a catalogue of orders
@@ -6,7 +7,7 @@ import java.util.ArrayList;
  * @author Tamara Galstian
  * Created on October 14, 2026
  */
-public class OrderCatalogue {
+public class OrderCatalogue implements Serializable {
     private ArrayList<Order> orders;
 
     /**
