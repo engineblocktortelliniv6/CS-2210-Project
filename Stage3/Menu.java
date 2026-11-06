@@ -14,6 +14,7 @@ public class Menu {
     public static OrderCatalogue orderCatalogue;
     public static PersonCatalogue personCatalogue;
     public static Order holdOrder;
+    public static Staff menuUser;
 
     /*----------------------------------------------------------*/
     // THESE are THE VARIABLES and THE METHODS for THE MENU SYSTEM
@@ -49,12 +50,28 @@ public class Menu {
         reporter.printOrders(orderCatalogue);
     }
 
-    /**
-     * Asks the user for information related to a new order, and adds it.
-     * Displays a message indicating to the user that the order has been placed successfully.
-     */
+    /**Asks the user for information related to a new order, and adds it.
+     * Displays a message indicating to the user that the order has been placed successfully. */
+    // THIS IS NOT FINISHED, FINISH IT!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     public static void addOrder() {
-        System.out.println("What is the information");
+        System.out.println("In order to add a new order, we need to know some information.");
+        int ID;
+        while (true) {
+            System.out.println("What is the ID?");
+            ID = in.nextInt();
+            in.nextLine(); // consume the leftover newline
+            
+        }
+        
+        System.out.println("What are the products?");
+        ProductCatalogue catalogue;
+        System.out.println("Who needs the products for the order");
+        Person orderer;
+        System.out.println("What is the date?");
+        String date = in.nextLine();
+
+        Order newOrder = new Order(ID, catalogue, orderer, menuUser, date);
+        orderCatalogue.addOrder(newOrder);
     }
 
     /**First, we display the information about all orders.
