@@ -55,11 +55,11 @@ public class Supplier extends Person {
      * @param products new product catalogue
      */
     public void setProducts(ProductCatalogue products) {
-        if (this.products == null){
+        if (products == null) {
             this.products = new ProductCatalogue();
+        } else {
+        this.products = products;
         }
-        else {
-            this.products = products;
         }
     }
 
