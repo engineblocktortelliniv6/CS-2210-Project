@@ -58,26 +58,22 @@ public class Main {
     /*------------------------------------------------------------*/
 
     /**
-     * Stores the user's name.
-     * The value is established in the signIn() method.
+     * Stores the user's entered name.
      */
     public static String userName;
     
     /**
-     * Stores the user's ID.
-     * The value is established in the signIn() method.
+     * Stores the user's entered ID.
      */
     public static int userID;
 
     /**
-     * Stores the user's password
-     * The value is established in the signIn() method.
+     * Stores the user's entered password
      */
     public static String password;
     
     /**
-     * Asks the user for their name and ID,
-     * and saves those to userName and userID
+     * Asks the user for sign in information and signs the user in if it is valid.
      */
     public static void signIn() {
         System.out.println("Sign In.");
@@ -98,7 +94,7 @@ public class Main {
             Menu.menuUser = staff;
             System.out.println("Sign in successful");
         } else {
-            System.out.println("Sign in failed");
+            System.out.println("Sign in failed. You are not authorized to use this software.");
         }
     }
 
