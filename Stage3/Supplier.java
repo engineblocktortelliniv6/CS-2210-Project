@@ -61,7 +61,6 @@ public class Supplier extends Person {
         this.products = products;
         }
         }
-    }
 
     /**
      * Adds a product to the supplier's product catalogue.
