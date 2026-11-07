@@ -39,7 +39,7 @@ public class InboundOrder extends Order {
  */
     public void addProductsToWarehouse(Warehouse warehouse) {
         if (getOrderType().equals("InboundOrder")) {
-            warehouse.addProduct(getProducts());
+        warehouse.addProducts(getProducts());
         }
     }
 }
