@@ -1,3 +1,4 @@
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
@@ -7,7 +8,7 @@ import java.util.ArrayList;
  * @author Nicholas Snyder
  * Created on November 2, 2026
  */
-public class ProductCatalogue {
+public class ProductCatalogue implements Serializable {
     private ArrayList<Product> products;
 
     /**
