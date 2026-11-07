@@ -68,7 +68,7 @@ public class OutboundOrder extends Order {
      */
     public void removeProductsFromWarehouse(Warehouse warehouse) {
         if (getOrderType().equals("OutboundOrder")) {
-            warehouse.removeProduct(getProducts());
+            warehouse.removeProducts(getProducts());
         }
         
     }
