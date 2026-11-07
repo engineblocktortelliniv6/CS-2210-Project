@@ -68,6 +68,12 @@ public class Main {
      * The value is established in the signIn() method.
      */
     public static int userID;
+
+    /**
+     * Stores the user's password
+     * The value is established in the signIn() method.
+     */
+    public static String password;
     
     /**
      * Asks the user for their name and ID,
@@ -77,8 +83,23 @@ public class Main {
         System.out.println("Sign In.");
         System.out.println("What is your name?");
         userName = in.nextLine();
+
+        System.out.println("What is your ID?");
         userID = in.nextInt();
-        in.nextLine(); // consume the leftover newline
+        in.nextLine();
+
+        Staff staff = (Staff) personCatalogue.searchForPersonByID(userID);
+
+        System.out.println("What is your password?");
+        password = in.nextLine();
+        
+
+        if (SignIn.signIn(staff, userName, password)) {
+            Menu.menuUser = staff;
+            System.out.println("Sign in successful");
+        } else {
+            System.out.println("Sign in failed");
+        }
     }
 
 }
