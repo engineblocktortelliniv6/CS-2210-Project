@@ -70,6 +70,7 @@ public class SeedInformation {
         // -------------------------------------------------------------
         InboundOrder inOrder = new InboundOrder(sup1);
         inOrder.setOrder(4001);
+        inOrder.setProducts(p1);
         inOrder.setProducts(p2);
         inOrder.setStaff(manager);
         inOrder.setOrderDate("2026-10-25");
@@ -78,7 +79,8 @@ public class SeedInformation {
 
         OutboundOrder outOrder = new OutboundOrder(cust1.getAddress(), cust1);
         outOrder.setOrder(4002);
-        outOrder.setProducts(p1);
+        outOrder.setProducts(p3);
+        outOrder.setProducts(p4);
         outOrder.setStaff(clerk);
         outOrder.setOrderDate("2026-11-01");
         outOrder.setOrderStatus(DeliveryStatus.IS_BEING_DELIVERED); // Pending delivery
