@@ -12,12 +12,18 @@ public class Reporter {
      */
     public void printOrder(Order order) {
         System.out.println("Order ID: " + order.getOrderID());
-        System.out.println("Order Type:" + order.getOrderType());
+        System.out.println("Order Type: " + order.getOrderType());
         System.out.println("Order Date: " + order.getOrderDate());
         System.out.println("Order Status: " + order.getOrderStatus());
         System.out.println("Staff: " + order.getStaff().getName());
-        System.out.println("Orderer: " + (order.getOrderer()));
-        System.out.println("Products: " + order.getProducts());
+        System.out.println("Orderer: " + order.getOrderer().getName());
+        System.out.println("Products: "); 
+        ProductCatalogue catalogue = order.getProducts();
+        for (int i = 0; i < catalogue.size(); i++) {
+            System.out.print("  " + catalogue.get(i).getName());
+            System.out.println();
+        }
+
     }
 
     /**
