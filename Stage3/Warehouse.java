@@ -90,4 +90,8 @@ public class Warehouse implements Serializable {
         products.printProductByName(name);
     }
 
+    @Override
+    public String toString() {
+        return "Warehouse Inventory: " + products.toString();
+    }
 }

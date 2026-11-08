@@ -42,4 +42,11 @@ public class InboundOrder extends Order {
         warehouse.addProducts(getProducts());
         }
     }
+
+      @Override
+      public String toString() {
+        return "InboundOrder{" + "ID: " + getOrderID() + ", Date: " + getOrderDate() 
+        + ", Supplier: " + orderer.getName() + ", Staff: " + getStaff().getName() 
+        + ", Status: " + getOrderStatus() + ", Products: " + getProducts() + "}";
+   }
 }

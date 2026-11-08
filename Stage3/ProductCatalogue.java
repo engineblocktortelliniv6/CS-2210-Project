@@ -166,4 +166,8 @@ public class ProductCatalogue implements Serializable {
         return products.get(index);
     }
 
+    @Override
+    public String toString() {
+        return products.toString();
+    }
 }

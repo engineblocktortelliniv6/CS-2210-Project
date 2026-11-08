@@ -161,4 +161,13 @@ public class Order implements Serializable {
     public void setOrderer(Person orderer) {
         this.orderer = orderer;
     }
+
+    @Override
+    public String toString() {
+        return "Order{" + "ID:" + getOrderID() + ", Date: " + getOrderDate()
+                + ", Orderer: " + getOrderer()
+                + ", Staff member who imported the order: " + getStaff()
+                + ", Products: " + getProducts()
+                + ", Order status: " + getOrderStatus() + "}";
+    }
 }

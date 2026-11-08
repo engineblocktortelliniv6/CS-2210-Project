@@ -1,5 +1,5 @@
-import java.util.ArrayList;
 import java.io.Serializable;
+import java.util.ArrayList;
 
 /**
  * Manages a catalogue of orders
@@ -60,5 +60,10 @@ public class OrderCatalogue implements Serializable {
             }
         }
         return null;
+    }
+
+    @Override
+    public String toString() {
+        return orders.toString();
     }
 }
