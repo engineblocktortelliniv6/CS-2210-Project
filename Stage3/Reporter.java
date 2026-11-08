@@ -11,24 +11,13 @@ public class Reporter {
      * @param order the order that we want to print.
      */
     public void printOrder(Order order) {
-       System.out.println("Order ID: " + order.getOrderID());
-       System.out.println("Order Date: " + order.getOrderDate());
-       switch (order.getOrderStatus()) {
-            case DeliveryStatus.DELIVERED:
-                System.out.println("Order Status: delivered");
-            break;
-            case DeliveryStatus.IS_BEING_DELIVERED:
-                System.out.println("Order Status: is being delivered");
-            break;
-            case DeliveryStatus.NULL:
-                System.out.println("Order Status: Not set yet.");
-            break;
-       }
-       System.out.println("Products: " + order.getProducts());
-       System.out.println("Orderer: " + order.getOrderer());
-       System.out.println("Staff Name: " + order.getStaff().getName());
-       System.out.println("Order Status: " + order.getOrderStatus());
-       System.out.println("Order Type: " + order.getOrderType());
+        System.out.println("Order ID: " + order.getOrderID());
+        System.out.println("Order Type:" + order.getOrderType());
+        System.out.println("Order Date: " + order.getOrderDate());
+        System.out.println("Order Status: " + order.getOrderStatus());
+        System.out.println("Staff: " + order.getStaff().getName());
+        System.out.println("Orderer: " + (order.getOrderer()));
+        System.out.println("Products: " + order.getProducts());
     }
 
     /**
