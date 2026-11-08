@@ -31,6 +31,11 @@ public class Main {
 
         // Load serialized data from data.dat
         Object[] loadedData = FileManager.loadEverything();
+        if (loadedData == null) {
+            DataInit.main(null);
+            loadedData = FileManager.loadEverything();
+        }
+        
         warehouse = (Warehouse) loadedData[0];
         orderCatalogue = (OrderCatalogue) loadedData[1];
         personCatalogue = (PersonCatalogue) loadedData[2];
