@@ -147,7 +147,9 @@ public class Order implements Serializable {
      * @param product the single product to add to the order
      */
     public void setProducts(Product product) {
-        this.products = new ProductCatalogue();
+        if (this.products == null) {
+            this.products = new ProductCatalogue();
+        }
         if (product != null) {
             this.products.addProduct(product);
         }
