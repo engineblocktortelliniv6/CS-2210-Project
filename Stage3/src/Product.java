@@ -5,9 +5,9 @@ import java.io.Serializable;
 * Created on October 17, 2026
 */
 public class Product implements Serializable {
-    String name;
-    double price;
-    int productID;
+    private String name;
+    private double price;
+    private int productID;
 
     /**
      * Constructs a new Product object with the specified name, price, and product ID.
@@ -81,4 +81,5 @@ public class Product implements Serializable {
                 ", productID: " + productID +
                 '}';
     }
+
 }
