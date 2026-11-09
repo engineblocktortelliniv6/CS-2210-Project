@@ -15,6 +15,7 @@ public class Main {
 
     /**
      * this method is the entrypoint to the entire program
+     * 
      * @param args for command line arguments (of which, if you add any, you will be ruthlessly mocked)
      */
     public static void main(String[] args) {
@@ -28,12 +29,19 @@ public class Main {
         // initalize the scanner
         in = new Scanner(System.in);
 
-        warehouse = new Warehouse();
-        orderCatalogue = new OrderCatalogue();
-        personCatalogue = new PersonCatalogue();
-
-        //Seed information
-        SeedInformation.seed(warehouse, orderCatalogue, personCatalogue);
+        // Load serialized data from data.dat
+        Object[] loadedData = FileManager.loadEverything();
+        if (loadedData == null) {
+            DataInit.main(null);
+            loadedData = FileManager.loadEverything();
+        }
+        
+        warehouse = (Warehouse) loadedData[0];
+        orderCatalogue = (OrderCatalogue) loadedData[1];
+        personCatalogue = (PersonCatalogue) loadedData[2];
+        FileManager.warehouse = warehouse;
+        FileManager.orderCatalogue = orderCatalogue;
+        FileManager.personCatalogue = personCatalogue;
 
         // sign in the user
         signIn();
@@ -55,27 +63,44 @@ public class Main {
     /*------------------------------------------------------------*/
 
     /**
-     * Stores the user's name.
-     * The value is established in the signIn() method.
+     * Stores the user's entered name.
      */
     public static String userName;
     
     /**
-     * Stores the user's ID.
-     * The value is established in the signIn() method.
+     * Stores the user's entered ID.
      */
     public static int userID;
+
+    /**
+     * Stores the user's entered password
+     */
+    public static String password;
     
     /**
-     * Asks the user for their name and ID,
-     * and saves those to userName and userID
+     * Asks the user for sign in information and signs the user in if it is valid.
      */
     public static void signIn() {
         System.out.println("Sign In.");
         System.out.println("What is your name?");
         userName = in.nextLine();
+
+        System.out.println("What is your ID?");
         userID = in.nextInt();
-        in.nextLine(); // consume the leftover newline
+        in.nextLine();
+
+        Staff staff = (Staff) personCatalogue.searchForPersonByID(userID);
+
+        System.out.println("What is your password?");
+        password = in.nextLine();
+        
+
+        if (SignIn.signIn(staff, userName, password)) {
+            Menu.menuUser = staff;
+            System.out.println("Sign in successful");
+        } else {
+            System.out.println("Sign in failed. You are not authorized to use this software.");
+        }
     }
 
 }

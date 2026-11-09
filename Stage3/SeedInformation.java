@@ -20,10 +20,12 @@ public class SeedInformation {
         // 1. CREATE STAFF MEMBERS
         // -------------------------------------------------------------
         Staff manager = new Staff("Alice Walker", 101, "555-564-0111", "Warehouse Manager", true, "ThisPasswordIsIncorrect");
+        Staff defaultStaff = new Staff("Default", 100, "555-555-5555", "Default", true, "Default");
         Staff clerk = new Staff("Bob Martinez", 102, "555-756-0112", "Inventory Clerk", false, "Password");
         
         personCatalogue.addPerson(manager);
         personCatalogue.addPerson(clerk);
+        personCatalogue.addPerson(defaultStaff);
 
         // -------------------------------------------------------------
         // 2. CREATE CUSTOMERS
@@ -70,6 +72,7 @@ public class SeedInformation {
         // -------------------------------------------------------------
         InboundOrder inOrder = new InboundOrder(sup1);
         inOrder.setOrder(4001);
+        inOrder.setProducts(p1);
         inOrder.setProducts(p2);
         inOrder.setStaff(manager);
         inOrder.setOrderDate("2026-10-25");
@@ -78,7 +81,8 @@ public class SeedInformation {
 
         OutboundOrder outOrder = new OutboundOrder(cust1.getAddress(), cust1);
         outOrder.setOrder(4002);
-        outOrder.setProducts(p1);
+        outOrder.setProducts(p3);
+        outOrder.setProducts(p4);
         outOrder.setStaff(clerk);
         outOrder.setOrderDate("2026-11-01");
         outOrder.setOrderStatus(DeliveryStatus.IS_BEING_DELIVERED); // Pending delivery

@@ -1,5 +1,4 @@
 import java.util.Scanner;
-import java.util.ArrayList;
 
 /**
  * @author Xavier Cheney
@@ -52,26 +51,37 @@ public class Menu {
 
     /**Asks the user for information related to a new order, and adds it.
      * Displays a message indicating to the user that the order has been placed successfully. */
-    // THIS IS NOT FINISHED, FINISH IT!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    public static void addOrder() {
+        public static void addOrder() {
         System.out.println("In order to add a new order, we need to know some information.");
-        int ID;
-        while (true) {
-            System.out.println("What is the ID?");
-            ID = in.nextInt();
-            in.nextLine(); // consume the leftover newline
-            break;
+        System.out.print("What is the order ID? ");
+        int ID = in.nextInt();
+        in.nextLine(); // consume leftover newline
+
+        System.out.print("What is the name of the person/orderer? ");
+        String personName = in.nextLine();
+        Person orderer = personCatalogue.searchForPersonByName(personName);
+        if (orderer == null) {
+            System.out.println("Person not found in catalogue. Order aborted.");
+            return;
         }
-        
-        System.out.println("What are the products?");
+
+        System.out.print("What is the name of the product to order? ");
+        String prodName = in.nextLine();
+        Product product = warehouse.searchForProductByName(prodName);
+        if (product == null) {
+            System.out.println("Product not found in warehouse inventory. Order aborted.");
+            return;
+        }
+
         ProductCatalogue catalogue = new ProductCatalogue();
-        System.out.println("Who needs the products for the order");
-        Person orderer = new Person("", 30, "3030");
-        System.out.println("What is the date?");
+        catalogue.addProduct(product);
+
+        System.out.print("What is the order date (YYYY-MM-DD)? ");
         String date = in.nextLine();
 
         Order newOrder = new Order(ID, catalogue, orderer, menuUser, date);
         orderCatalogue.addOrder(newOrder);
+        System.out.println("Order " + ID + " has been placed successfully.");
     }
 
     /**First, we display the information about all orders.

@@ -18,7 +18,12 @@ public class Supplier extends Person {
     public Supplier(String name, int personID, String phoneNumber, String address, ProductCatalogue products) {
         super(name, personID, phoneNumber);
         this.address = address;
-        this.products = new ProductCatalogue();
+        if (products == null){
+            this.products = new ProductCatalogue();
+            }
+        else {
+            this.products = products;
+        }
     }
 
     /**
@@ -50,8 +55,12 @@ public class Supplier extends Person {
      * @param products new product catalogue
      */
     public void setProducts(ProductCatalogue products) {
-        this.products = new ProductCatalogue();
-    }
+        if (products == null) {
+            this.products = new ProductCatalogue();
+        } else {
+        this.products = products;
+        }
+        }
 
     /**
      * Adds a product to the supplier's product catalogue.

@@ -68,8 +68,15 @@ public class OutboundOrder extends Order {
      */
     public void removeProductsFromWarehouse(Warehouse warehouse) {
         if (getOrderType().equals("OutboundOrder")) {
-            warehouse.removeProduct(getProducts());
+            warehouse.removeProducts(getProducts());
         }
-        
+    }
+
+    @Override
+    public String toString() {
+        return "OutboundOrder{" + "ID: " + getOrderID() + ", Date: " + getOrderDate() 
+        + ", Customer: " + orderer.getName() + ", Address: '" + address + '\'' 
+        + ", Staff: " + getStaff().getName() + ", Status: " + getOrderStatus() 
+        + ", Products: " + getProducts() + "}";
     }
 }

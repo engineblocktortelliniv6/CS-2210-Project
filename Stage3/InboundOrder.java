@@ -39,7 +39,14 @@ public class InboundOrder extends Order {
  */
     public void addProductsToWarehouse(Warehouse warehouse) {
         if (getOrderType().equals("InboundOrder")) {
-            warehouse.addProduct(getProducts());
+        warehouse.addProducts(getProducts());
         }
     }
+
+      @Override
+      public String toString() {
+        return "InboundOrder{" + "ID: " + getOrderID() + ", Date: " + getOrderDate() 
+        + ", Supplier: " + orderer.getName() + ", Staff: " + getStaff().getName() 
+        + ", Status: " + getOrderStatus() + ", Products: " + getProducts() + "}";
+   }
 }

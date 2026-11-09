@@ -3,9 +3,9 @@ import java.io.Serializable;
 /**
  * Represents an order and manages its information
  * and products
+ * 
  * @author Tamara Galstian
  * Created on October 21, 2026
- * 
  */
 public class Order implements Serializable {
     private int orderID;
@@ -24,7 +24,6 @@ public class Order implements Serializable {
      * @param orderStatus the status of the order
      * @param orderer     the person who placed an order
      * @param staff       the staff member that created the order
-     *                    to the order
      * @param date        the date of the order
      */
     public Order(int orderID, ProductCatalogue products,
@@ -73,12 +72,10 @@ public class Order implements Serializable {
         return staff;
     }
 
-    // setter needed
     /**
-     * Gets the status of the order and prints whether it is
-     * pending or finished
+     * Gets the status of the order
      * 
-     * @return true if the order is done, false otherwise
+     * @return the delivery status of the order
      */
     public DeliveryStatus getOrderStatus() {
         return orderStatus;
@@ -109,10 +106,70 @@ public class Order implements Serializable {
 
     /**
      * Sets the status of the order
+     * 
      * @param orderStatus the new order status
      */
     public void setOrderStatus(DeliveryStatus orderStatus) {
         this.orderStatus = orderStatus;
     }
 
+    /**
+     * Sets the staff member assigned to the order
+     * 
+     * @param staff the staff member
+     */
+    public void setStaff(Staff staff) {
+        this.staff = staff;
+    }
+
+    /**
+     * Sets the date of the order
+     * 
+     * @param date the date string
+     */
+    public void setOrderDate(String date) {
+        this.date = date;
+    }
+
+    /**
+     * Sets the products catalogue for the order
+     * 
+     * @param products the catalogue of products
+     */
+    public void setProducts(ProductCatalogue products) {
+        this.products = products;
+    }
+
+    /**
+     * Overloaded method to allow setting a single product,
+     * wrapping it into a ProductCatalogue automatically.
+     * 
+     * @param product the single product to add to the order
+     */
+    public void setProducts(Product product) {
+        if (this.products == null) {
+            this.products = new ProductCatalogue();
+        }
+        if (product != null) {
+            this.products.addProduct(product);
+        }
+    }
+
+    /**
+     * Sets the person who placed the order
+     * 
+     * @param orderer the person placing the order
+     */
+    public void setOrderer(Person orderer) {
+        this.orderer = orderer;
+    }
+
+    @Override
+    public String toString() {
+        return "Order{" + "ID:" + getOrderID() + ", Date: " + getOrderDate()
+                + ", Orderer: " + getOrderer()
+                + ", Staff member who imported the order: " + getStaff()
+                + ", Products: " + getProducts()
+                + ", Order status: " + getOrderStatus() + "}";
+    }
 }
