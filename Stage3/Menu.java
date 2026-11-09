@@ -220,7 +220,7 @@ public class Menu {
      * This is the SECOND REPORT.
      */
     public static void printProductsOffered() {
-
+        reporter.printProductsOffered(personCatalogue);
     }
 
     /**

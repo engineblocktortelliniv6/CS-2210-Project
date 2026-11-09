@@ -74,4 +74,19 @@ public class Reporter {
         System.out.println(warehouse.getProducts());
     }
 
+    /**
+     * Prints all of the products offered by each Supplier.
+     * This is the SECOND REPORT.
+     * @param personCatalogue is the PersonCatalogue that we will print.
+     */
+    public void printProductsOffered(PersonCatalogue personCatalogue) {
+        for (int i = 0; i < personCatalogue.size(); i++ ) {
+            Person person = personCatalogue.get(i);
+            if (person instanceof Supplier) {
+                Supplier supplier = (Supplier)person;
+                System.out.println(supplier.getProducts().toString());
+            }
+        }
+    }
+
 }
