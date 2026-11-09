@@ -115,7 +115,7 @@ public class PersonCatalogue implements Serializable {
      * Returns the number of people in the person catalogue.
      * @return the number of people in the person catalogue
      */
-    public int Size() {
+    public int size() {
         return persons.size();
     }
 
