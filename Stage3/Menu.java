@@ -24,13 +24,11 @@ public class Menu {
     public static final String[] ORDER_MENU_STRINGS = {"Print Orders", "Add Order", "Update Order Status", SAVE_EVERYTHING};
     public static final String[] WAREHOUSE_MENU_STRINGS = {"Display Locations", "Display a Location's Products", "Find Product", "Add Product to Location", "Remove Product from Location", SAVE_EVERYTHING};
     public static final String[] PERSON_MENU_STRINGS = {"Display Supplier's Products", "Display a Person's Info", "Add Person", "Remove Person", "Change a Person's Information", "Change a Supplier's Information", "Change a Customer's Information", "Change a Staff's Information", SAVE_EVERYTHING};
-    public static final String[] ADD_PERSON_MENU_STRINGS = {"Add Staff", "Add Supplier", "Add Customer"};
     public static final String[] SET_ORDER_STATUS_STRINGS = {"delivered", "is being delivered"};
     public static final Runnable[] MENU_RUNNABLES = {Menu::orderMenu, Menu::warehouseMenu, Menu::personMenu, FileManager::saveEverything};
     public static final Runnable[] ORDER_MENU_RUNNABLES = {Menu::printOrders, Menu::addOrder, Menu::updateOrderStatus, FileManager::saveEverything};
     public static final Runnable[] WAREHOUSE_MENU_RUNNABLES = {Menu::findProduct, Menu::addProduct, Menu::removeProducts, FileManager::saveEverything};
     public static final Runnable[] PERSON_MENU_RUNNABLES = {Menu::printProductsOffered, Menu::printPerson, Menu::addPerson, Menu::removePerson, Menu::changePersonInfo, Menu::changeSupplierInfo, Menu::changeCustomerInfo, Menu::changeStaffInfo, FileManager::saveEverything};
-    public static final Runnable[] ADD_PERSON_MENU_RUNNABLES = {Menu::addStaff, Menu::addSupplier, Menu::addCustomer};
     public static final Runnable[] SET_ORDER_STATUS_RUNNABLES = {Menu::setOrderToDelivered, Menu::setOrderToBeingDelivered};
     public static void menu() { genericMenu("Main Menu", MENU_STRINGS, MENU_RUNNABLES); }
     public static void orderMenu() { genericMenu("Order Menu", ORDER_MENU_STRINGS, ORDER_MENU_RUNNABLES); }
@@ -240,26 +238,54 @@ public class Menu {
         }
     }
 
-    /**
-     * Asks the user which Person object they want to add,
-     * and then prompts the generic information related to that person,
-     * and then calls a function to get the more specific non-inherited information,
-     * and then adds the object to the PersonCatalogue.
-     */
+    /**Prompts the user for generic information related to every type of person.
+     * Then asks the user which Person object they want to add, and for the correlarly information.
+     * Finally, the function adds the object to the PersonCatalogue. */
     public static void addPerson() {
-        genericMenu("Add Person Menu", ADD_PERSON_MENU_STRINGS, ADD_PERSON_MENU_RUNNABLES);
-    }
-
-    public static void addStaff() {
-
-    }
-
-    public static void addSupplier() {
+        // header prompt
+        System.out.println("To add a person into the catalogue, please provide the following information:");
         
-    }
+        // get generic information for a person
+        System.out.println("What is the name of the person?");
+        String name = in.nextLine();
+        name = capitaliseName(name);
+        System.out.println("What is the ID of the person?");
+        int ID = in.nextInt();
+        in.nextLine(); // consume the leftover newline
+        System.out.println("What is the phone number of the person?");
+        String phoneNumber = in.nextLine();
 
-    public static void addCustomer() {
-        
+        // get object-specific information for a person
+        do {
+            System.out.println("Is this person a staff, supplier, or a customer?");
+            String addPersonType = in.nextLine().toLowerCase();
+            switch (addPersonType) {
+                case "staff":
+                    System.out.println("What is the staff's job title?");
+                    String jobTitle = in.nextLine();
+                    System.out.println("Is the staff an admin? Please type 'true' or 'false'.");
+                    boolean isAdmin = getBoolean();
+                    System.out.println("What is the staff's password?"); // totally secure ;)
+                    String password = in.nextLine();
+                    Staff addStaff = new Staff(name, ID, phoneNumber, jobTitle, isAdmin, password);
+                    personCatalogue.addPerson(addStaff);
+                return;
+                case "supplier":
+                    System.out.println("What is the address of the supplier?");
+                    String supplierAddress = in.nextLine();
+                    ProductCatalogue products;
+                return;
+                case "customer":
+                    System.out.println("What is the address of the customer?");
+                    String customerAddress = in.nextLine();
+                    Customer addCustomer = new Customer(name, ID, phoneNumber, customerAddress);
+                    personCatalogue.addPerson(addCustomer);
+                return;
+                default:
+                    System.out.println(addPersonType + " is not a 'staff', 'supplier', or a 'customer', so I can't add the person.");
+                break;
+            }
+        } while (true);
     }
 
     /**
@@ -306,9 +332,38 @@ public class Menu {
         
     }
 
-    /*--------------------------------------------------------------------------*/
-    // BEWARE OBJECT-ORIENTED PROGRAMMER for THIS is THE LAND of THE HELPER METHOD
-    /*--------------------------------------------------------------------------*/
+    /*---------------------------------------------------------------------------*/
+    // BEWARE OBJECT-ORIENTED PROGRAMMER for THIS is THE LAND of THE HELPER METHODS
+    /*---------------------------------------------------------------------------*/
+
+    /**
+     * Capitalises each first letter of each token using the delimeter " "
+     * @param name the name that we're capitalising.
+     * @return a String where each token is capitalised.
+     */
+    public static String capitaliseName(String name) {
+        String[] names = name.split(" ");
+        String capitalisedName = "";
+        for (int i = 0; i < names.length; i++ ) {
+            capitalisedName += names[i].substring(0, 1).toUpperCase() + names[i].substring(1).toLowerCase() + " ";
+        }
+        return capitalisedName;
+    }
+
+    /**
+     * Gets a boolean from the user.
+     * @returns whatever the user types, bro.
+     */
+    public static boolean getBoolean() {
+        do {
+            String booleanString = in.nextLine().toLowerCase();
+            switch (booleanString) {
+                case "true": return true;
+                case "false": return false;
+                default: System.out.println("Invalid input: " + booleanString + ". Please type 'true' or 'false'.");
+            }
+        } while (true);
+    }
 
     /**
      * This is a helper function that is meant to facilitate the creation of menus.
