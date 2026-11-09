@@ -21,7 +21,7 @@ public class DataInit {
      * @throws RuntimeException if an unexpected error occurs during initialization
      * @param args command-line arguments
      */
-    public static void main(String[] args) {
+        public static void initializeData() {
         // Initialize warehouse, order catalogue, and person catalogue with dummy values.
         Warehouse warehouse = new Warehouse();
         OrderCatalogue orderCatalogue = new OrderCatalogue();

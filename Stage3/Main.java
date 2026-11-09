@@ -32,7 +32,7 @@ public class Main {
         // Load serialized data from data.dat
         Object[] loadedData = FileManager.loadEverything();
         if (loadedData == null) {
-            DataInit.main(null);
+            DataInit.initializeData();
             loadedData = FileManager.loadEverything();
         }
         
