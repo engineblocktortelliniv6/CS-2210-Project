@@ -129,13 +129,23 @@ public class Menu {
         case "name":
             System.out.println("What is the name of the product that you wish to search for?");
             String name = in.nextLine();
-            warehouse.removeProductByName(name);
+            Product prodByName = warehouse.searchForProductByName(name);
+            if (prodByName != null) {
+                reporter.printProduct(prodByName);
+            } else {
+                System.out.println("No such product exists in the warehouse with the name: " + name);
+            }
             break;
         case "id":
-            System.out.println("What is the name of the product that you wish to search for?");
+            System.out.println("What is the ID of the product that you wish to search for?");
             int ID = in.nextInt();
             in.nextLine(); // consume the leftover newline
-            warehouse.removeProductByID(ID);
+            Product prodByID = warehouse.searchForProductByID(ID);
+            if (prodByID != null) {
+                reporter.printProduct(prodByID);
+            } else {
+                System.out.println("No such product exists in the warehouse with the ID: " + ID);
+            }
             break;
         default:
             System.out.println("We can't search by whatever attribute '" + mode + "' is, broski...");
