@@ -228,8 +228,16 @@ public class Menu {
      * and if they exist, the prints the information,
      * else returns an error.
      */
-    public static void printPerson() {
-
+        public static void printPerson() {
+        System.out.println("Please enter the ID of the person you would like to print:");
+        int ID = in.nextInt();
+        in.nextLine();
+        Person person = personCatalogue.searchForPersonByID(ID);
+        if (person == null) {
+            System.out.println("Person not found.");
+        } else {
+            reporter.printPerson(person);
+        }
     }
 
     /**
