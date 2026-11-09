@@ -355,7 +355,7 @@ public class Menu {
      * @param name the name that we're capitalising.
      * @return a String where each token is capitalised.
      */
-    public static String capitaliseName(String name) {
+    private static String capitaliseName(String name) {
         String[] names = name.split(" ");
         String capitalisedName = "";
         for (int i = 0; i < names.length; i++ ) {
@@ -368,7 +368,7 @@ public class Menu {
      * Gets a boolean from the user.
      * @returns whatever the user types, bro.
      */
-    public static boolean getBoolean() {
+    private static boolean getBoolean() {
         do {
             String booleanString = in.nextLine().toLowerCase();
             switch (booleanString) {
@@ -383,7 +383,7 @@ public class Menu {
      * Constructs a new Product from information given by the user.
      * @return a new Product object.
      */
-    public static Product getProduct() {
+    private static Product getProduct() {
         System.out.println("What is the name of the product?");
         String name = in.nextLine();
         System.out.println("What is the price of the product?");
@@ -399,7 +399,7 @@ public class Menu {
      * Constructs a new ProductCatalogue from information given by the user.
      * @return a new ProductCatalogue object.
      */
-    public static ProductCatalogue getProductCatalogue() {
+    private static ProductCatalogue getProductCatalogue() {
         ProductCatalogue products = new ProductCatalogue();
         String userInput = "";
         do {
@@ -419,7 +419,7 @@ public class Menu {
      * @param menuArguments , each option to display to the user
      * @param menuMethods , each method that we may want to call
      */
-    public static void genericMenu(String menuName, String[] menuArguments, Runnable[] menuMethods) {
+    private static void genericMenu(String menuName, String[] menuArguments, Runnable[] menuMethods) {
         int userChoice;
         int menuLength = menuArguments.length;
         int i;
