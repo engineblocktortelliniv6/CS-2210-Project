@@ -279,21 +279,24 @@ public class Menu {
                     String password = in.nextLine();
                     Staff addStaff = new Staff(name, ID, phoneNumber, jobTitle, isAdmin, password);
                     personCatalogue.addPerson(addStaff);
+                    System.out.println(name + " added successfully.");
                 return;
                 case "supplier":
-                    System.out.println("What is the address of the supplier?");
-                    String supplierAddress = in.nextLine();
                     System.out.println("Each supplier has a number of products that they offer. Now you will list every product.");
                     System.out.println("Type 'done' when finished.");
                     ProductCatalogue products = getProductCatalogue();
+                    System.out.println("What is the address of the supplier?");
+                    String supplierAddress = in.nextLine();
                     Supplier supplier = new Supplier(name, ID, phoneNumber, supplierAddress, products);
                     personCatalogue.addPerson(supplier);
+                    System.out.println(name + " added successfully.");
                 return;
                 case "customer":
                     System.out.println("What is the address of the customer?");
                     String customerAddress = in.nextLine();
                     Customer addCustomer = new Customer(name, ID, phoneNumber, customerAddress);
                     personCatalogue.addPerson(addCustomer);
+                    System.out.println(name + " added successfully.");
                 return;
                 default:
                     System.out.println(addPersonType + " is not a 'staff', 'supplier', or a 'customer', so I can't add the person.");
