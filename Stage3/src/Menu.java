@@ -283,7 +283,11 @@ public class Menu {
                 case "supplier":
                     System.out.println("What is the address of the supplier?");
                     String supplierAddress = in.nextLine();
-                    ProductCatalogue products;
+                    System.out.println("Each supplier has a number of products that they offer. Now you will list every product.");
+                    System.out.println("Type 'done' when finished.");
+                    ProductCatalogue products = getProductCatalogue();
+                    Supplier supplier = new Supplier(name, ID, phoneNumber, supplierAddress, products);
+                    personCatalogue.addPerson(supplier);
                 return;
                 case "customer":
                     System.out.println("What is the address of the customer?");
@@ -373,6 +377,38 @@ public class Menu {
                 default: System.out.println("Invalid input: " + booleanString + ". Please type 'true' or 'false'.");
             }
         } while (true);
+    }
+
+    /**
+     * Constructs a new Product from information given by the user.
+     * @return a new Product object.
+     */
+    public static Product getProduct() {
+        System.out.println("What is the name of the product?");
+        String name = in.nextLine();
+        System.out.println("What is the price of the product?");
+        double price = in.nextDouble();
+        in.nextLine(); // consume leftover newline
+        System.out.println("What is the ID of the product?");
+        int ID = in.nextInt();
+        in.nextLine(); // consume leftover newline
+        return new Product(name, price, ID);
+    }
+
+    /**
+     * Constructs a new ProductCatalogue from information given by the user.
+     * @return a new ProductCatalogue object.
+     */
+    public static ProductCatalogue getProductCatalogue() {
+        ProductCatalogue products = new ProductCatalogue();
+        String userInput = "";
+        do {
+            Product product = getProduct();
+            products.addProduct(product);
+            System.out.println("Continue? 'y'/'n'.");
+            userInput = in.nextLine();
+        } while (userInput != "n" || userInput != "done");
+        return products;
     }
 
     /**
