@@ -20,6 +20,7 @@ public class SeedInformation {
         // 1. CREATE STAFF MEMBERS
         // -------------------------------------------------------------
         Staff manager = new Staff("Alice Walker", 101, "555-564-0111", "Warehouse Manager", true, "ThisPasswordIsIncorrect");
+        Staff manager = new Staff("Default", 100, "555-555-5555", "Default", true, "Default");
         Staff clerk = new Staff("Bob Martinez", 102, "555-756-0112", "Inventory Clerk", false, "Password");
         
         personCatalogue.addPerson(manager);
