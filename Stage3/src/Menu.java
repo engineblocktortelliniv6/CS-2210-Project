@@ -309,19 +309,15 @@ public class Menu {
      * Asks the user for the name of a Person object,
      * and then removes it from the PersonCatalogue.
      */
-    public static void removePersonByName() {
+    public static void removePerson() {
         //header prompt
-        System.out.println("To remove a person from the catalogue by name please provide the name: ");
+        System.out.println("To remove a person from the catalogue by name please provide the ID of the person you wish to remove: ");
 
-        // get information for a person
-        System.out.println("What is the name of the person?");
-        String name = in.nextLine();
+        // get name of the person
+        System.out.println("What is the ID of the person?");
+        int ID = in.nextInt();
 
-        personCatalogue.removePersonByName(name);
-
-        
-
-
+        personCatalogue.removePersonByID(ID);
     }
 
     /**
