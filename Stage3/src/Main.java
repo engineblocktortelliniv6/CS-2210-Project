@@ -80,26 +80,40 @@ public class Main {
     /**
      * Asks the user for sign in information and signs the user in if it is valid.
      */
-    public static void signIn() {
-        System.out.println("Sign In.");
-        System.out.println("What is your name?");
-        userName = in.nextLine();
+/**
+     * Asks the user for sign in information and signs the user in if it is valid.
+     */
+public static void signIn() {
+        boolean signedIn = false;
 
-        System.out.println("What is your ID?");
-        userID = in.nextInt();
-        in.nextLine();
+        while (!signedIn) {
+            System.out.println("--- Sign In ---");
+            System.out.print("What is your name? ");
+            userName = in.nextLine();
 
-        Staff staff = (Staff) personCatalogue.searchForPersonByID(userID);
+            System.out.print("What is your ID? ");
 
-        System.out.println("What is your password?");
-        password = in.nextLine();
-        
+            userID = in.nextInt();
+            in.nextLine();
 
-        if (SignIn.signIn(staff, userName, password)) {
-            Menu.menuUser = staff;
-            System.out.println("Sign in successful");
-        } else {
-            System.out.println("Sign in failed. You are not authorized to use this software.");
+            Person person = personCatalogue.searchForPersonByID(userID);
+
+            if (person == null || !(person instanceof Staff)) {
+                System.out.println("Sign in failed. Invalid staff credentials.\n");
+            }
+
+            Staff staff = (Staff) person;
+
+            System.out.print("What is your password? ");
+            password = in.nextLine();
+
+            if (SignIn.signIn(staff, userName, password)) {
+                Menu.menuUser = staff;
+                System.out.println("Sign in successful. Welcome, " + staff.getName() + "!\n");
+                signedIn = true;
+            } else {
+                System.out.println("Sign in failed. Incorrect name or password.\n");
+            }
         }
     }
 
