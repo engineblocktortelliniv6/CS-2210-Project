@@ -35,7 +35,7 @@ public class Menu {
     public static void orderMenu() { genericMenu("Order Menu", ORDER_MENU_STRINGS, ORDER_MENU_RUNNABLES); }
     public static void warehouseMenu() { genericMenu("Warehouse Menu", WAREHOUSE_MENU_STRINGS, WAREHOUSE_MENU_RUNNABLES); }
     public static void personMenu() { genericMenu("Person Menu", PERSON_MENU_STRINGS, PERSON_MENU_RUNNABLES); }
-    
+
     /*---------------------------------------*/
     // THESE are THE METHODS for THE ORDER MENU
     /*---------------------------------------*/
@@ -154,7 +154,6 @@ public class Menu {
             } else {
                 System.out.println("We can't search by whatever attribute '" + mode + "' is.");
             }
-            
             break;
         }
     }
@@ -246,7 +245,9 @@ public class Menu {
      * and if they exist, the prints the information,
      * else returns an error.
      */
-        public static void printPerson() {
+    public static void printPerson() {
+
+        
         System.out.println("Please enter the ID of the person you would like to print:");
         int ID = in.nextInt();
         in.nextLine();
@@ -320,7 +321,32 @@ public class Menu {
      * and then removes it from the PersonCatalogue.
      */
     public static void removePerson() {
-        
+        // get user search mode
+        System.out.println("If you wish to blot a person from the catalogues, then do you want to do so by name or by ID?");
+        System.out.println("Write 'ID' or 'name'.");
+        String mode = in.nextLine().toLowerCase();
+
+        // print info based on the mode
+        switch (mode) {
+        case "name":
+            System.out.println("What is the name of the person that you wish to remove?");
+            String name = in.nextLine();
+            personCatalogue.removePersonByName(name);
+            break;
+        case "id":
+            System.out.println("What is the ID of the person that you wish to remove?");
+            int ID = in.nextInt();
+            in.nextLine(); // consume the leftover newline
+            personCatalogue.removePersonByID(ID);
+            break;
+        default:
+            if (totallyNessicaryBoolean) {
+                System.out.println("We can't search by whatever attribute '" + mode + "' is, broski...");
+            } else {
+                System.out.println("We can't search by whatever attribute '" + mode + "' is.");
+            }
+            break;
+        }
     }
 
     /**
