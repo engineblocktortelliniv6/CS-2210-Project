@@ -413,7 +413,7 @@ public class Menu {
      */
     public static void changeSupplierInfo() {
         // get user search mode
-        System.out.println("If you wish to change a person's name from the catalogues, then do you want to do so by name or by ID?");
+        System.out.println("If you wish to change a supplier's name from the catalogues, then do you want to do so by name or by ID?");
         System.out.println("Write 'ID' or 'name'.");
         String mode = in.nextLine().toLowerCase();
 
@@ -443,9 +443,10 @@ public class Menu {
 
         // change name
         if (personToChange instanceof Supplier) {
-            System.out.println("What is the new name of a supplier?");
+            System.out.println("What is the new name of the supplier?");
             String newName = in.nextLine();
-            personToChange.setName(newName);
+            Supplier supplierToChange = (Supplier) personToChange;
+            supplierToChange.setName(newName);
         } else {
             System.out.println("The person that you requested to change is not a supplier, so we can't change their name."); return;
         }
@@ -457,7 +458,44 @@ public class Menu {
      * and then changes it.
      */
     public static void changeCustomerInfo() {
+        // get user search mode
+        System.out.println("If you wish to change a customer's address from the catalogues, then do you want to do so by name or by ID?");
+        System.out.println("Write 'ID' or 'name'.");
+        String mode = in.nextLine().toLowerCase();
 
+        // get person to change based on the mode
+        Person personToChange;        
+        switch (mode) {
+        case "name":
+            System.out.println("What is the name of the person that you wish to change the information of?");
+            String name = in.nextLine();
+            personToChange = personCatalogue.searchForPersonByName(name);
+            if (personToChange == null) {
+                System.out.println("No such person exists in the person catalogue with the name: " + name); return;
+            }
+            break;
+        case "id":
+            System.out.println("What is the ID of the person that you wish to change the information of?");
+            int ID = in.nextInt();
+            in.nextLine(); // consume the leftover newline
+            personToChange = personCatalogue.searchForPersonByID(ID);
+            if (personToChange == null) {
+                System.out.println("No such person exists in the person catalogue with the ID: " + ID); return;
+            }
+            break;
+        default:
+            System.out.println("We can't search by whatever attribute '" + mode + "' is."); return;
+        }
+
+        // change address
+        if (personToChange instanceof Customer) {
+            System.out.println("What is the new name of a supplier?");
+            String newName = in.nextLine();
+            Customer customerToChange = (Customer) personToChange;
+            customerToChange.setName(newName);
+        } else {
+            System.out.println("The person that you requested to change is not a customer, so we can't change their address."); return;
+        }
     }
 
     /**
@@ -466,7 +504,44 @@ public class Menu {
      * and then changes it.
      */
     public static void changeStaffInfo() {
-        
+        // get user search mode
+        System.out.println("If you wish to change a staff's name from the catalogues, then do you want to do so by name or by ID?");
+        System.out.println("Write 'ID' or 'name'.");
+        String mode = in.nextLine().toLowerCase();
+
+        // get person to change based on the mode
+        Person personToChange;        
+        switch (mode) {
+        case "name":
+            System.out.println("What is the name of the person that you wish to change the information of?");
+            String name = in.nextLine();
+            personToChange = personCatalogue.searchForPersonByName(name);
+            if (personToChange == null) {
+                System.out.println("No such person exists in the person catalogue with the name: " + name); return;
+            }
+            break;
+        case "id":
+            System.out.println("What is the ID of the person that you wish to change the information of?");
+            int ID = in.nextInt();
+            in.nextLine(); // consume the leftover newline
+            personToChange = personCatalogue.searchForPersonByID(ID);
+            if (personToChange == null) {
+                System.out.println("No such person exists in the person catalogue with the ID: " + ID); return;
+            }
+            break;
+        default:
+            System.out.println("We can't search by whatever attribute '" + mode + "' is."); return;
+        }
+
+        // change name
+        if (personToChange instanceof Staff) {
+            System.out.println("What is the new name of the staff?");
+            String newName = in.nextLine();
+            Staff staffToChange = (Staff) personToChange;
+            staffToChange.setName(newName);
+        } else {
+            System.out.println("The person that you requested to change is not a staff, so we can't change their name."); return;
+        }
     }
 
     /*---------------------------------------------------------------------------*/
