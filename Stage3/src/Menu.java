@@ -306,14 +306,14 @@ public class Menu {
     }
 
     /**
-     * Asks the user for the name of a Person object,
+     * Asks the user for the ID of a person object,
      * and then removes it from the PersonCatalogue.
      */
     public static void removePerson() {
         //header prompt
         System.out.println("To remove a person from the catalogue by name please provide the ID of the person you wish to remove: ");
 
-        // get name of the person
+        // get ID of the person
         System.out.println("What is the ID of the person?");
         int ID = in.nextInt();
         in.nextLine();
@@ -329,6 +329,15 @@ public class Menu {
      * and then changes it.
      */
     public static void changePersonInfo() {
+        //header prompt
+        System.out.println("Please enter the name of the person's information you would like to change: ");
+
+        //get the name of the person
+        String name = in.nextLine();
+        in.nextLine();
+        //NEEDS TO BE FINISHED
+
+
 
     }
 
