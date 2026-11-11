@@ -320,7 +320,7 @@ public class Menu {
 
         personCatalogue.removePersonByID(ID);
         FileManager.saveEverything();
-        System.out.println("The person" + person.getName() + "With ID: " + ID + "Has been removed");
+        System.out.println("The person" + "With ID: " + ID + "Has been removed");
     }
 
     /**
