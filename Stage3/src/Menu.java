@@ -415,12 +415,15 @@ public class Menu {
     private static ProductCatalogue getProductCatalogue() {
         ProductCatalogue products = new ProductCatalogue();
         String userInput = "";
-        do {
+        while (true) {
             Product product = getProduct();
             products.addProduct(product);
             System.out.println("Continue? 'y'/'n'.");
             userInput = in.nextLine();
-        } while (userInput != "n" || userInput != "done");
+            if (userInput.substring(0).equals("n") || userInput.equals("done")) {
+                break;
+            }
+        }
         return products;
     }
 
