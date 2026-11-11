@@ -316,8 +316,11 @@ public class Menu {
         // get name of the person
         System.out.println("What is the ID of the person?");
         int ID = in.nextInt();
+        in.nextLine();
 
         personCatalogue.removePersonByID(ID);
+        FileManager.saveEverything();
+        System.out.println("The person" + person.getName() + "With ID: " + ID + "Has been removed");
     }
 
     /**
