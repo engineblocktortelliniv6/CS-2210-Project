@@ -5,6 +5,5 @@
  */
 public enum DeliveryStatus {
     DELIVERED,
-    IS_BEING_DELIVERED,
-    NULL
+    IS_BEING_DELIVERED
 }

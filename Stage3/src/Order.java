@@ -30,7 +30,7 @@ public class Order implements Serializable {
             Person orderer, Staff staff, String date) {
         this.orderID = orderID;
         this.products = products;
-        this.orderStatus = DeliveryStatus.NULL;
+        this.orderStatus = DeliveryStatus.IS_BEING_DELIVERED;
         this.orderer = orderer;
         this.staff = staff;
         this.date = date;
