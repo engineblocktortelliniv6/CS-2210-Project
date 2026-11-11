@@ -30,8 +30,8 @@ public class SeedInformation {
         // -------------------------------------------------------------
         // 2. CREATE CUSTOMERS
         // -------------------------------------------------------------
-        Customer cust1 = new Customer("John Miller", 101, "555-695-2851", "123 University Ave, Portales, NM");
-        Customer cust2 = new Customer("Sarah Connor", 102, "555-785-0222", "456 Industrial Rd, Clovis, NM");
+        Customer cust1 = new Customer("John Miller", 201, "555-695-2851", "123 University Ave, Portales, NM");
+        Customer cust2 = new Customer("Sarah Connor", 202, "555-785-0222", "456 Industrial Rd, Clovis, NM");
 
         personCatalogue.addPerson(cust1);
         personCatalogue.addPerson(cust2);
