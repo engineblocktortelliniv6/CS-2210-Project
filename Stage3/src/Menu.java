@@ -14,7 +14,6 @@ public class Menu {
     public static PersonCatalogue personCatalogue;
     public static Order holdOrder;
     public static Staff menuUser;
-    public static boolean totallyNessicaryBoolean = false;
 
     /*----------------------------------------------------------*/
     // THESE are THE VARIABLES and THE METHODS for THE MENU SYSTEM
@@ -149,12 +148,7 @@ public class Menu {
             }
             break;
         default:
-            if (totallyNessicaryBoolean) {
-                System.out.println("We can't search by whatever attribute '" + mode + "' is, broski...");
-            } else {
-                System.out.println("We can't search by whatever attribute '" + mode + "' is.");
-            }
-            break;
+            System.out.println("We can't search by whatever attribute '" + mode + "' is."); return;
         }
     }
 
@@ -170,24 +164,17 @@ public class Menu {
         String supplierName = in.nextLine();
         Person personSupplier = personCatalogue.searchForPersonByName(supplierName);
         if (personSupplier instanceof Supplier) {} else {
-            if (totallyNessicaryBoolean) {
-                System.out.println("The name " + supplierName + " is not of a supplier, bro cha-cho.");
-            } else {
-                System.out.println("The name " + supplierName + " is not of a supplier.");
-            }
-            return;
+            System.out.println("The name " + supplierName + " is not of a supplier."); return;
         }
         Supplier supplier = (Supplier)personSupplier;
         if (supplier == null) {
-            System.out.println("That supplier does not exist in the system, so we can't add the product.");
-            return;
+            System.out.println("That supplier does not exist in the system, so we can't add the product."); return;
         }
 
         // get the arraylist of products that the supplier offers
         ProductCatalogue products = supplier.getProducts();
         if (products.size() == 0) {
-            System.out.println("That supplier does not offer any products, so you can't choose which one to add.");
-            return;
+            System.out.println("That supplier does not offer any products, so you can't choose which one to add."); return;
         }
         for (int i = 0; i < products.size(); i++ ) {
             reporter.printProduct(products.get(i));
@@ -202,7 +189,7 @@ public class Menu {
             }
         }
         if (product == null) {
-            System.out.println("That supplier does not have any " + productString + ", so we can't add it.");
+            System.out.println("That supplier does not have any " + productString + ", so we can't add it."); return;
         }
 
         System.out.println(productString + " added successfully.");
@@ -275,12 +262,7 @@ public class Menu {
             }
             break;
         default:
-            if (totallyNessicaryBoolean) {
-                System.out.println("We can't search by whatever attribute '" + mode + "' is, broski...");
-            } else {
-                System.out.println("We can't search by whatever attribute '" + mode + "' is.");
-            }
-            break;
+            System.out.println("We can't search by whatever attribute '" + mode + "' is."); return;
         }
     }
 
@@ -365,12 +347,7 @@ public class Menu {
             personCatalogue.removePersonByID(ID);
             break;
         default:
-            if (totallyNessicaryBoolean) {
-                System.out.println("We can't search by whatever attribute '" + mode + "' is, broski...");
-            } else {
-                System.out.println("We can't search by whatever attribute '" + mode + "' is.");
-            }
-            break;
+            System.out.println("We can't search by whatever attribute '" + mode + "' is."); return;
         }
     }
 
@@ -406,11 +383,7 @@ public class Menu {
             }
             break;
         default:
-            if (totallyNessicaryBoolean) {
-                System.out.println("We can't search by whatever attribute '" + mode + "' is, broski..."); return;
-            } else {
-                System.out.println("We can't search by whatever attribute '" + mode + "' is."); return;
-            }
+            System.out.println("We can't search by whatever attribute '" + mode + "' is."); return;
         }
 
         // change information
@@ -429,11 +402,7 @@ public class Menu {
             personToChange.setPhoneNumber(name);
             break;
         default:
-            if (totallyNessicaryBoolean) {
-                System.out.println("We can't change whatever '" + mode + "' is in a person, broski..."); return;
-            } else {
-                System.out.println("We can't change whatever '" + mode + "' is in a person."); return;
-            }
+            System.out.println("We can't change whatever '" + mode + "' is in a person..."); return;
         }
     }
 
@@ -469,11 +438,7 @@ public class Menu {
             }
             break;
         default:
-            if (totallyNessicaryBoolean) {
-                System.out.println("We can't search by whatever attribute '" + mode + "' is, broski..."); return;
-            } else {
-                System.out.println("We can't search by whatever attribute '" + mode + "' is."); return;
-            }
+            System.out.println("We can't search by whatever attribute '" + mode + "' is."); return;
         }
 
         // change name
