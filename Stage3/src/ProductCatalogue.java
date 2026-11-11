@@ -65,10 +65,9 @@ public class ProductCatalogue implements Serializable {
             if (products.get(i).getProductID() == productID) {
                 return products.get(i);
             }
-            else {
-                alertProductNotFound(productID);
-            }
         }
+
+        alertProductNotFound(productID);
         return null;
     }
 
@@ -82,10 +81,8 @@ public class ProductCatalogue implements Serializable {
             if (products.get(i).getName().equalsIgnoreCase(name)) {
                 return products.get(i);
             }
-            else {
-                alertProductNotFound(name);
-            }
         }
+	    alertProductNotFound(name);
         return null;
     }
 
