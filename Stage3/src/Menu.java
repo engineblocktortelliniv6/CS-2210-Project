@@ -351,7 +351,7 @@ public class Menu {
         System.out.println("Write 'ID' or 'name'.");
         String mode = in.nextLine().toLowerCase();
 
-        // print info based on the mode
+        // remove person based on the mode
         switch (mode) {
         case "name":
             System.out.println("What is the name of the person that you wish to remove?");
@@ -380,7 +380,61 @@ public class Menu {
      * and then changes it.
      */
     public static void changePersonInfo() {
+        // get user search mode
+        System.out.println("If you wish to change a person's information from the catalogues, then do you want to do so by name or by ID?");
+        System.out.println("Write 'ID' or 'name'.");
+        String mode = in.nextLine().toLowerCase();
 
+        // print info based on the mode
+        Person personToChange;        
+        switch (mode) {
+        case "name":
+            System.out.println("What is the name of the person that you wish to change the information of?");
+            String name = in.nextLine();
+            personToChange = personCatalogue.searchForPersonByName(name);
+            if (personToChange == null) {
+                System.out.println("No such person exists in the person catalogue with the name: " + name); return;
+            }
+            break;
+        case "id":
+            System.out.println("What is the ID of the person that you wish to change the information of?");
+            int ID = in.nextInt();
+            in.nextLine(); // consume the leftover newline
+            personToChange = personCatalogue.searchForPersonByID(ID);
+            if (personToChange == null) {
+                System.out.println("No such person exists in the person catalogue with the ID: " + ID); return;
+            }
+            break;
+        default:
+            if (totallyNessicaryBoolean) {
+                System.out.println("We can't search by whatever attribute '" + mode + "' is, broski..."); return;
+            } else {
+                System.out.println("We can't search by whatever attribute '" + mode + "' is."); return;
+            }
+        }
+
+        // change information
+        System.out.println("Do you want to change the phone number, or the name of " + personToChange.getName() + "?");
+        System.out.println("Type 'phone number' or 'name'.");
+        mode = in.nextLine();
+        switch (mode) {
+        case "phone number":
+            System.out.println("What is their new phone number?");
+            String number = in.nextLine();
+            personToChange.setPhoneNumber(number);
+            break;
+        case "name":
+            System.out.println("What is their new name?");
+            String name = in.nextLine();
+            personToChange.setPhoneNumber(name);
+            break;
+        default:
+            if (totallyNessicaryBoolean) {
+                System.out.println("We can't change whatever '" + mode + "' is in a person, broski..."); return;
+            } else {
+                System.out.println("We can't change whatever '" + mode + "' is in a person."); return;
+            }
+        }
     }
 
     /**
