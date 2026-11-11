@@ -22,7 +22,7 @@ public class Menu {
     public static final String SAVE_EVERYTHING = "Save Everything";
     public static final String[] MENU_STRINGS = {"Deliery Menu", "Warehouse Menu", "Person Menu", SAVE_EVERYTHING};
     public static final String[] ORDER_MENU_STRINGS = {"Print Orders", "Add Order", "Update Order Status", SAVE_EVERYTHING};
-    public static final String[] WAREHOUSE_MENU_STRINGS = {"Display Locations", "Display a Location's Products", "Find Product", "Add Product to Location", "Remove Product from Location", SAVE_EVERYTHING};
+    public static final String[] WAREHOUSE_MENU_STRINGS = {"Find Product", "Add Product to Location", "Remove Product from Location", SAVE_EVERYTHING};
     public static final String[] PERSON_MENU_STRINGS = {"Display Supplier's Products", "Display a Person's Info", "Add Person", "Remove Person", "Change a Person's Information", "Change a Supplier's Information", "Change a Customer's Information", "Change a Staff's Information", SAVE_EVERYTHING};
     public static final String[] SET_ORDER_STATUS_STRINGS = {"delivered", "is being delivered"};
     public static final Runnable[] MENU_RUNNABLES = {Menu::orderMenu, Menu::warehouseMenu, Menu::personMenu, FileManager::saveEverything};
@@ -49,7 +49,7 @@ public class Menu {
 
     /**Asks the user for information related to a new order, and adds it.
      * Displays a message indicating to the user that the order has been placed successfully. */
-        public static void addOrder() {
+    public static void addOrder() {
         System.out.println("In order to add a new order, we need to know some information.");
         System.out.print("What is the order ID? ");
         int ID = in.nextInt();
@@ -306,21 +306,11 @@ public class Menu {
     }
 
     /**
-     * Asks the user for the ID of a person object,
+     * Asks the user for the name of a Person object,
      * and then removes it from the PersonCatalogue.
      */
     public static void removePerson() {
-        //header prompt
-        System.out.println("To remove a person from the catalogue by name please provide the ID of the person you wish to remove: ");
-
-        // get ID of the person
-        System.out.println("What is the ID of the person?");
-        int ID = in.nextInt();
-        in.nextLine();
-
-        personCatalogue.removePersonByID(ID);
-        FileManager.saveEverything();
-        System.out.println("The person" + "With ID: " + ID + "Has been removed");
+        
     }
 
     /**
@@ -329,15 +319,6 @@ public class Menu {
      * and then changes it.
      */
     public static void changePersonInfo() {
-        //header prompt
-        System.out.println("Please enter the name of the person's information you would like to change: ");
-
-        //get the name of the person
-        String name = in.nextLine();
-        in.nextLine();
-        //NEEDS TO BE FINISHED
-
-
 
     }
 
