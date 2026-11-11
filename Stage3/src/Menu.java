@@ -246,16 +246,41 @@ public class Menu {
      * else returns an error.
      */
     public static void printPerson() {
+        // get user search mode
+        System.out.println("If you wish to print a person from the catalogues, then do you want to do so by name or by ID?");
+        System.out.println("Write 'ID' or 'name'.");
+        String mode = in.nextLine().toLowerCase();
 
-        
-        System.out.println("Please enter the ID of the person you would like to print:");
-        int ID = in.nextInt();
-        in.nextLine();
-        Person person = personCatalogue.searchForPersonByID(ID);
-        if (person == null) {
-            System.out.println("Person not found.");
-        } else {
-            reporter.printPerson(person);
+        // print info based on the mode
+        switch (mode) {
+        case "name":
+            System.out.println("What is the name of the person that you wish to print?");
+            String name = in.nextLine();
+            Person personByName = personCatalogue.searchForPersonByName(name);
+            if (personByName == null) {
+                System.out.println("No such person exists in the person catalogue with the name: " + name);
+            } else {
+                reporter.printPerson(personByName);
+            }
+            break;
+        case "id":
+            System.out.println("What is the ID of the person that you wish to print?");
+            int ID = in.nextInt();
+            in.nextLine(); // consume the leftover newline
+            Person personByID = personCatalogue.searchForPersonByID(ID);
+            if (personByID == null) {
+                System.out.println("No such person exists in the person catalogue with the ID: " + ID);
+            } else {
+                reporter.printPerson(personByID);
+            }
+            break;
+        default:
+            if (totallyNessicaryBoolean) {
+                System.out.println("We can't search by whatever attribute '" + mode + "' is, broski...");
+            } else {
+                System.out.println("We can't search by whatever attribute '" + mode + "' is.");
+            }
+            break;
         }
     }
 
