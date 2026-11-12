@@ -80,13 +80,17 @@ public class Reporter {
      * @param personCatalogue is the PersonCatalogue that we will print.
      */
     public void printProductsOffered(PersonCatalogue personCatalogue) {
-        for (int i = 0; i < personCatalogue.size(); i++ ) {
+        for (int i = 0; i < personCatalogue.size(); i++) {
             Person person = personCatalogue.get(i);
             if (person instanceof Supplier) {
-                Supplier supplier = (Supplier)person;
-                System.out.println(supplier.getProducts().toString());
+                Supplier supplier = (Supplier) person;
+                System.out.println("Supplier: " + supplier.getName());
+                ProductCatalogue products = supplier.getProducts();
+                for (int j = 0; j < products.size(); j++) {
+                    printProduct(products.get(j));
+                }
+                System.out.println();
             }
         }
     }
-
 }
