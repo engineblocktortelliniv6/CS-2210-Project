@@ -1,21 +1,19 @@
 /**
  * Author Xavier Cheney
  * Date: October 14, 2026
- * And if you're curious what proportion of it I have written, you can know that the answer is ALL of IT!!!
  */
 
 import java.util.Scanner;
 
 public class Main {
+
     public static Warehouse warehouse;
     public static OrderCatalogue orderCatalogue;
     public static PersonCatalogue personCatalogue;
-
     public static Scanner in;
 
     /**
      * this method is the entrypoint to the entire program
-     * 
      * @param args for command line arguments (of which, if you add any, you will be ruthlessly mocked)
      */
     public static void main(String[] args) {
@@ -35,7 +33,6 @@ public class Main {
             DataInit.initializeData();
             loadedData = FileManager.loadEverything();
         }
-        
         warehouse = (Warehouse) loadedData[0];
         orderCatalogue = (OrderCatalogue) loadedData[1];
         personCatalogue = (PersonCatalogue) loadedData[2];
@@ -62,28 +59,18 @@ public class Main {
     // THESE are THE VARIABLES and THE METHODS for THE SIGNIN SYSTEM
     /*------------------------------------------------------------*/
 
-    /**
-     * Stores the user's entered name.
-     */
+    /**Stores the user's entered name. */
     public static String userName;
     
-    /**
-     * Stores the user's entered ID.
-     */
+    /**Stores the user's entered ID. */
     public static int userID;
 
-    /**
-     * Stores the user's entered password
-     */
+    /**Stores the user's entered password */
     public static String password;
     
-    /**
-     * Asks the user for sign in information and signs the user in if it is valid.
-     */
-/**
-     * Asks the user for sign in information and signs the user in if it is valid.
-     */
-public static void signIn() {
+    /**Asks the user for sign in information.
+     * Signs the user in if it is valid. */
+    public static void signIn() {
         boolean signedIn = false;
 
         while (!signedIn) {
