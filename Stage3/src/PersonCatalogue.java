@@ -97,6 +97,8 @@ public class PersonCatalogue implements Serializable {
         Person person = searchForPersonByID(personID);
         if (person != null) {
             persons.remove(person);
+        } else {
+            System.out.println("Person with ID: " + personID + " already is not in the catalogues, so we can't remove them from the catalogues.");
         }
     }
 
@@ -108,6 +110,8 @@ public class PersonCatalogue implements Serializable {
         Person person = searchForPersonByName(name);
         if (person != null) {
             persons.remove(person);
+        } else {
+            System.out.println("Person with name: " + name + " already is not in the catalogues, so we can't remove them from the catalogues.");
         }
     }
 
