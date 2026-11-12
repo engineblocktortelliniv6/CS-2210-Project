@@ -1,0 +1,1 @@
+I wrote the classes Customer, DataInit, FileManager, Person, PersonCatalogue, Reporter, SeedInformation, SignIn, Staff, and Supplier. I created the read me file and user guide. As the final touches were being made on the Menu and Main classes, I served mainly as a bug tester reporting to the other team members issues I found.
