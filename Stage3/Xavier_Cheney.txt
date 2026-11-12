@@ -1,0 +1,4 @@
+I wrote the menu class, which connects the system to a graphical user interface in the terminal.
+Also, I wrote the warehouse class.
+And I practically rewrote the order class.
+My job of the menu often led me to find errors with how we concieved of the system, which forced us to make changes.
