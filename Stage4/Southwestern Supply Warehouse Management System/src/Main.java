@@ -13,7 +13,7 @@ public class Main {
     public static Scanner in;
 
     /**
-     * this method is the entrypoint to the entire program
+     * this method is the entry point to the entire program
      * @param args for command line arguments (of which, if you add any, you will be ruthlessly mocked)
      */
     public static void main(String[] args) {
