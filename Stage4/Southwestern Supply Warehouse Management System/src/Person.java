@@ -1,0 +1,85 @@
+import java.io.Serializable;
+
+/**
+ * This class represents a person with a name, person ID, and phone number.
+ * @Author Nicholas Snyder
+ * Date: October 14, 2026
+ */
+
+public class Person implements Serializable {
+
+    private String name;
+    private int personID;
+    private String phoneNumber;
+
+    /**
+     * Constructs a new Person object with the specified name, person ID, and phone number.
+     * @param name        the name of the person
+     * @param personID    the identifier for the person
+     * @param phoneNumber the phone number of the person
+     */
+    public Person(String name, int personID, String phoneNumber) {
+        this.name = name;
+        this.personID = personID;
+        this.phoneNumber = phoneNumber;
+    }
+
+    /**
+     * Returns the name of the person.
+     * @return the name of the person
+     */
+    public String getName() {
+        return name;
+    }
+    /**
+     * Returns the person ID of the person.
+     * @return the person ID of the person
+     */
+    public int getPersonId() {
+        return personID;
+    }
+
+    /**
+     * Returns the phone number of the person.
+     * @return the phone number of the person
+     */
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    /**
+     * Sets the name of the person.
+     * @param name the new name of the person
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    /**
+     * Sets the person ID of the person.
+     * @param personID the new person ID of the person
+     */
+    public void setPersonId(int personID) {
+        this.personID = personID;
+    }
+    /**
+     * Sets the phone number of the person.
+     * @param phoneNumber the new phone number of the person
+     */
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    /**
+     * Returns a string representation of the person object.
+     * @return a string representation of the person object
+     */
+    @Override 
+    public String toString() {
+        return "Person{" +
+                "name: '" + name + '\'' +
+                ", personID: '" + personID + '\'' +
+                ", phoneNumber: '" + phoneNumber + '\'' +
+                '}';
+    }
+}
