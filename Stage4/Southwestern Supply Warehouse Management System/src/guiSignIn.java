@@ -8,6 +8,9 @@ public class guiSignIn extends javax.swing.JFrame {
     private Warehouse warehouse;
     private OrderCatalogue orderCatalogue;
     private PersonCatalogue personCatalogue;
+    private String enteredPassword;
+    private String enteredName;
+    private String enteredID;
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(guiSignIn.class.getName());
 
@@ -45,6 +48,8 @@ public class guiSignIn extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        txtErrorMessages = new javax.swing.JTextField();
+        txtErrorMessages.setVisible(false);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -69,6 +74,9 @@ public class guiSignIn extends javax.swing.JFrame {
 
         jLabel3.setText("ID");
 
+        txtErrorMessages.setEditable(false);
+        txtErrorMessages.addActionListener(this::txtErrorMessagesActionPerformed);
+
         javax.swing.GroupLayout pnlSignInLayout = new javax.swing.GroupLayout(pnlSignIn);
         pnlSignIn.setLayout(pnlSignInLayout);
         pnlSignInLayout.setHorizontalGroup(
@@ -80,48 +88,53 @@ public class guiSignIn extends javax.swing.JFrame {
                 .addGap(15, 15, 15)
                 .addGroup(pnlSignInLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlSignInLayout.createSequentialGroup()
-                        .addGroup(pnlSignInLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtSignIn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(pnlSignInLayout.createSequentialGroup()
-                                .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel1)))
-                        .addContainerGap())
-                    .addGroup(pnlSignInLayout.createSequentialGroup()
                         .addGroup(pnlSignInLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtID, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
                             .addComponent(txtPassword))
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel3))
+                    .addGroup(pnlSignInLayout.createSequentialGroup()
+                        .addGroup(pnlSignInLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtSignIn, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(pnlSignInLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(pnlSignInLayout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
-                                .addComponent(btnSubmit)
-                                .addGap(59, 59, 59))
-                            .addGroup(pnlSignInLayout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel1))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addGroup(pnlSignInLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtErrorMessages, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSubmit, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGap(14, 14, 14))
         );
         pnlSignInLayout.setVerticalGroup(
             pnlSignInLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlSignInLayout.createSequentialGroup()
                 .addComponent(txtLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtSignIn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(pnlSignInLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addGap(18, 18, 18)
-                .addGroup(pnlSignInLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSubmit)
-                    .addComponent(jLabel2))
-                .addGap(18, 18, 18)
-                .addGroup(pnlSignInLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
-                .addContainerGap(61, Short.MAX_VALUE))
+                .addGroup(pnlSignInLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlSignInLayout.createSequentialGroup()
+                        .addComponent(txtSignIn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(pnlSignInLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1))
+                        .addGap(18, 18, 18)
+                        .addGroup(pnlSignInLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2))
+                        .addGap(18, 18, 18))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlSignInLayout.createSequentialGroup()
+                        .addComponent(txtErrorMessages, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)))
+                .addGroup(pnlSignInLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlSignInLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel3))
+                    .addGroup(pnlSignInLayout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addComponent(btnSubmit)))
+                .addContainerGap(45, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -147,12 +160,41 @@ public class guiSignIn extends javax.swing.JFrame {
     }//GEN-LAST:event_txtPasswordActionPerformed
 
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
-        // TODO add your handling code here:
+        //TODO
+        //Pass collected user input to SignIn.java in order to validate input.
+        boolean signedIn = false;
+        enteredName = txtName.getText();
+        enteredID = txtID.getText();
+        int enteredIDAsInt = Integer.parseInt(enteredID);
+        enteredPassword = txtPassword.getText();
+        
+        Person person = personCatalogue.searchForPersonByID(enteredIDAsInt);
+        
+        if (person == null || !(person instanceof Staff)) {
+            txtErrorMessages.setText("Sign in is invalid.");
+            txtErrorMessages.setVisible(true);
+        }
+        
+        Staff staff = (Staff) person;
+        
+        if (SignIn.signIn(staff, enteredName, enteredPassword) == false) {
+            txtErrorMessages.setText("Sign in successful.");
+            txtErrorMessages.setVisible(true);
+            signedIn = true;
+                }
+        else {
+            txtErrorMessages.setText("Sign in is invalid.");
+            txtErrorMessages.setVisible(true);
+        }
     }//GEN-LAST:event_btnSubmitActionPerformed
 
     private void txtNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameActionPerformed
-        // TODO add your handling code here:
+                // TODO add your handling code here:
     }//GEN-LAST:event_txtNameActionPerformed
+
+    private void txtErrorMessagesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtErrorMessagesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtErrorMessagesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -185,6 +227,7 @@ public class guiSignIn extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel pnlSignIn;
+    private javax.swing.JTextField txtErrorMessages;
     private javax.swing.JTextField txtID;
     private javax.swing.JTextField txtLogo;
     private javax.swing.JTextField txtName;
