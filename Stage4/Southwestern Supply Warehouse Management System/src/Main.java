@@ -72,38 +72,38 @@ public class Main {
     
     /**Asks the user for sign in information.
      * Signs the user in if it is valid. */
-    public static void signIn() {
-        boolean signedIn = false;
-
-        while (!signedIn) {
-            System.out.println("--- Sign In ---");
-            System.out.print("What is your name? ");
-            userName = in.nextLine();
-
-            System.out.print("What is your ID? ");
-
-            userID = in.nextInt();
-            in.nextLine();
-
-            Person person = personCatalogue.searchForPersonByID(userID);
-
-            if (person == null || !(person instanceof Staff)) {
-                System.out.println("Sign in failed. Invalid staff credentials.\n");
-            }
-
-            Staff staff = (Staff) person;
-
-            System.out.print("What is your password? ");
-            password = in.nextLine();
-
-            if (SignIn.signIn(staff, userName, password)) {
-                Menu.menuUser = staff;
-                System.out.println("Sign in successful. Welcome, " + staff.getName() + "!\n");
-                signedIn = true;
-            } else {
-                System.out.println("Sign in failed. Incorrect name or password.\n");
-            }
-        }
-    }
+//    public static void signIn() {
+//        boolean signedIn = false;
+//
+//        while (!signedIn) {
+//            System.out.println("--- Sign In ---");
+//            System.out.print("What is your name? ");
+//            userName = in.nextLine();
+//
+//            System.out.print("What is your ID? ");
+//
+//            userID = in.nextInt();
+//            in.nextLine();
+//
+//            Person person = personCatalogue.searchForPersonByID(userID);
+//
+//            if (person == null || !(person instanceof Staff)) {
+//                System.out.println("Sign in failed. Invalid staff credentials.\n");
+//            }
+//
+//            Staff staff = (Staff) person;
+//
+//            System.out.print("What is your password? ");
+//            password = in.nextLine();
+//
+//            if (SignIn.signIn(staff, userName, password)) {
+//                Menu.menuUser = staff;
+//                System.out.println("Sign in successful. Welcome, " + staff.getName() + "!\n");
+//                signedIn = true;
+//            } else {
+//                System.out.println("Sign in failed. Incorrect name or password.\n");
+//            }
+//        }
+//    }
 
 }
