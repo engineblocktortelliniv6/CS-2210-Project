@@ -45,9 +45,9 @@ public class guiSignIn extends javax.swing.JFrame {
         txtID = new javax.swing.JTextField();
         txtPassword = new javax.swing.JTextField();
         btnSubmit = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        lblName = new javax.swing.JLabel();
+        lblPassword = new javax.swing.JLabel();
+        lblID = new javax.swing.JLabel();
         txtErrorMessages = new javax.swing.JTextField();
         txtErrorMessages.setVisible(false);
 
@@ -68,11 +68,11 @@ public class guiSignIn extends javax.swing.JFrame {
         btnSubmit.setText("Submit");
         btnSubmit.addActionListener(this::btnSubmitActionPerformed);
 
-        jLabel1.setText("Name");
+        lblName.setText("Name");
 
-        jLabel2.setText("Password");
+        lblPassword.setText("Password");
 
-        jLabel3.setText("ID");
+        lblID.setText("ID");
 
         txtErrorMessages.setEditable(false);
         txtErrorMessages.addActionListener(this::txtErrorMessagesActionPerformed);
@@ -92,15 +92,15 @@ public class guiSignIn extends javax.swing.JFrame {
                             .addComponent(txtID, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
                             .addComponent(txtPassword))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel3))
+                        .addComponent(lblID))
                     .addGroup(pnlSignInLayout.createSequentialGroup()
                         .addGroup(pnlSignInLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(txtSignIn, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(pnlSignInLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel1))))
+                            .addComponent(lblPassword)
+                            .addComponent(lblName))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
                 .addGroup(pnlSignInLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtErrorMessages, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -118,23 +118,24 @@ public class guiSignIn extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(pnlSignInLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1))
+                            .addComponent(lblName))
                         .addGap(18, 18, 18)
                         .addGroup(pnlSignInLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2))
-                        .addGap(18, 18, 18))
+                            .addComponent(lblPassword)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlSignInLayout.createSequentialGroup()
                         .addComponent(txtErrorMessages, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(10, 10, 10)))
                 .addGroup(pnlSignInLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlSignInLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel3))
+                    .addGroup(pnlSignInLayout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addGroup(pnlSignInLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblID)))
                     .addGroup(pnlSignInLayout.createSequentialGroup()
                         .addGap(16, 16, 16)
                         .addComponent(btnSubmit)))
-                .addContainerGap(45, Short.MAX_VALUE))
+                .addContainerGap(56, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -160,29 +161,34 @@ public class guiSignIn extends javax.swing.JFrame {
     }//GEN-LAST:event_txtPasswordActionPerformed
 
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
-        //TODO
-        //Pass collected user input to SignIn.java in order to validate input.
-        boolean signedIn = false;
-        enteredName = txtName.getText();
-        enteredID = txtID.getText();
-        int enteredIDAsInt = Integer.parseInt(enteredID);
+        enteredName = txtName.getText().trim();
+        enteredID = txtID.getText().trim();
         enteredPassword = txtPassword.getText();
-        
+
+        int enteredIDAsInt;
+        try {
+            enteredIDAsInt = Integer.parseInt(enteredID);
+        } catch (NumberFormatException e) {
+            txtErrorMessages.setText("ID must be a number.");
+            txtErrorMessages.setVisible(true);
+            return;
+        }
+
         Person person = personCatalogue.searchForPersonByID(enteredIDAsInt);
-        
+
         if (person == null || !(person instanceof Staff)) {
             txtErrorMessages.setText("Sign in is invalid.");
             txtErrorMessages.setVisible(true);
+            return;
         }
-        
+
         Staff staff = (Staff) person;
-        
-        if (SignIn.signIn(staff, enteredName, enteredPassword) == false) {
-            txtErrorMessages.setText("Sign in successful.");
-            txtErrorMessages.setVisible(true);
-            signedIn = true;
-                }
-        else {
+
+        if (SignIn.signIn(staff, enteredName, enteredPassword)) {
+            Menu.menuUser = staff;
+            new MainMenuGUI(warehouse, orderCatalogue, personCatalogue, staff).setVisible(true);
+            this.dispose();
+        } else {
             txtErrorMessages.setText("Sign in is invalid.");
             txtErrorMessages.setVisible(true);
         }
@@ -223,9 +229,9 @@ public class guiSignIn extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSubmit;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel lblID;
+    private javax.swing.JLabel lblName;
+    private javax.swing.JLabel lblPassword;
     private javax.swing.JPanel pnlSignIn;
     private javax.swing.JTextField txtErrorMessages;
     private javax.swing.JTextField txtID;
