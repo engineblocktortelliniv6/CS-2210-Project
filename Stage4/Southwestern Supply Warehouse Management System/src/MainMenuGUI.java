@@ -13,6 +13,7 @@ public class MainMenuGUI extends javax.swing.JFrame {
     private Warehouse warehouse;
     private OrderCatalogue orderCatalogue;
     private PersonCatalogue personCatalogue;
+    private Staff signInStaff;
 
     /**
      * Creates new form MainMenuGUI
@@ -21,11 +22,12 @@ public class MainMenuGUI extends javax.swing.JFrame {
         initComponents();
     }
     
-    public MainMenuGUI(Warehouse warehouse, OrderCatalogue orderCatalogue, PersonCatalogue personCatalogue){
+    public MainMenuGUI(Warehouse warehouse, OrderCatalogue orderCatalogue, PersonCatalogue personCatalogue, Staff signInStaff){
         this();
         this.warehouse = warehouse;
         this.orderCatalogue = orderCatalogue;
         this.personCatalogue = personCatalogue;
+        this.signInStaff = signInStaff;
     }
 
     /**
@@ -130,4 +132,5 @@ public class MainMenuGUI extends javax.swing.JFrame {
     private javax.swing.JButton btnWarehouseMenu;
     private javax.swing.JLabel lblTitle;
     // End of variables declaration//GEN-END:variables
+
 }
