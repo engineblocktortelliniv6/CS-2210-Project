@@ -10,7 +10,7 @@ public class Main {
     public static Warehouse warehouse;
     public static OrderCatalogue orderCatalogue;
     public static PersonCatalogue personCatalogue;
-    public static Scanner in;
+    //public static Scanner in;
 
     /**
      * this method is the entry point to the entire program
@@ -24,8 +24,8 @@ public class Main {
             System.out.println("Ah, well... anyways, let's continue to the main execution of the program.");
         }
 
-        // initalize the scanner
-        in = new Scanner(System.in);
+        // don't initalize the scanner (we don't need it anymore)
+        //in = new Scanner(System.in);
 
         // Load serialized data from data.dat
         Object[] loadedData = FileManager.loadEverything();
@@ -41,18 +41,20 @@ public class Main {
         FileManager.personCatalogue = personCatalogue;
 
         // sign in the user
-        signIn();
+        //signIn();
+        System.out.println("We don't want to use the old terminal-system.");
+        System.out.println("So, here we need to put the methods for the new menu and signin system.");
 
         // start THE MENU
-        Menu.in = in;
-        Menu.reporter = new Reporter();
-        Menu.orderCatalogue = orderCatalogue;
-        Menu.warehouse = warehouse;
-        Menu.personCatalogue = personCatalogue;
-        Menu.menu();
+        //Menu.in = in;
+        //Menu.reporter = new Reporter();
+        //Menu.orderCatalogue = orderCatalogue;
+        //Menu.warehouse = warehouse;
+        //Menu.personCatalogue = personCatalogue;
+        //Menu.menu();
 
         // close the scanner
-        in.close();
+        //in.close();
     }
 
     /*------------------------------------------------------------*/
