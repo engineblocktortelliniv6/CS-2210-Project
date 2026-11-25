@@ -1,16 +1,12 @@
 /**
  * Author Xavier Cheney
- * Date: October 14, 2026
+ * Date: November 25, 2026
  */
-
-import java.util.Scanner;
-
 public class Main {
 
     public static Warehouse warehouse;
     public static OrderCatalogue orderCatalogue;
     public static PersonCatalogue personCatalogue;
-    //public static Scanner in;
 
     /**
      * this method is the entry point to the entire program
@@ -23,10 +19,7 @@ public class Main {
             System.out.println("YOU THOUGHT THAT A COMMAND LINE ARGUMENT WOULD DO ANYTHING !!! HAHAHAHAHHAHAHAHHA");
             System.out.println("Ah, well... anyways, let's continue to the main execution of the program.");
         }
-
-        // don't initalize the scanner (we don't need it anymore)
-        //in = new Scanner(System.in);
-
+        
         // Load serialized data from data.dat
         Object[] loadedData = FileManager.loadEverything();
         if (loadedData == null) {
@@ -40,70 +33,12 @@ public class Main {
         FileManager.orderCatalogue = orderCatalogue;
         FileManager.personCatalogue = personCatalogue;
 
-        // sign in the user
-        //signIn();
+        // open the signin menu
+        // beyond this point, the control of the program jumps around from menu to menu
+        // this means that the main method doesn't actually organise the execution control
         System.out.println("We don't want to use the old terminal-system.");
         System.out.println("So, here we need to put the methods for the new menu and signin system.");
 
-        // start THE MENU
-        //Menu.in = in;
-        //Menu.reporter = new Reporter();
-        //Menu.orderCatalogue = orderCatalogue;
-        //Menu.warehouse = warehouse;
-        //Menu.personCatalogue = personCatalogue;
-        //Menu.menu();
-
-        // close the scanner
-        //in.close();
     }
-
-    /*------------------------------------------------------------*/
-    // THESE are THE VARIABLES and THE METHODS for THE SIGNIN SYSTEM
-    /*------------------------------------------------------------*/
-
-    /**Stores the user's entered name. */
-    public static String userName;
-    
-    /**Stores the user's entered ID. */
-    public static int userID;
-
-    /**Stores the user's entered password */
-    public static String password;
-    
-    /**Asks the user for sign in information.
-     * Signs the user in if it is valid. */
-//    public static void signIn() {
-//        boolean signedIn = false;
-//
-//        while (!signedIn) {
-//            System.out.println("--- Sign In ---");
-//            System.out.print("What is your name? ");
-//            userName = in.nextLine();
-//
-//            System.out.print("What is your ID? ");
-//
-//            userID = in.nextInt();
-//            in.nextLine();
-//
-//            Person person = personCatalogue.searchForPersonByID(userID);
-//
-//            if (person == null || !(person instanceof Staff)) {
-//                System.out.println("Sign in failed. Invalid staff credentials.\n");
-//            }
-//
-//            Staff staff = (Staff) person;
-//
-//            System.out.print("What is your password? ");
-//            password = in.nextLine();
-//
-//            if (SignIn.signIn(staff, userName, password)) {
-//                Menu.menuUser = staff;
-//                System.out.println("Sign in successful. Welcome, " + staff.getName() + "!\n");
-//                signedIn = true;
-//            } else {
-//                System.out.println("Sign in failed. Incorrect name or password.\n");
-//            }
-//        }
-//    }
 
 }
