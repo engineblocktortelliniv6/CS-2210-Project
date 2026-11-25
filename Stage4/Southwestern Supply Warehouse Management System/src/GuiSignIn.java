@@ -4,7 +4,7 @@
  *
  * @author nick
  */
-public class guiSignIn extends javax.swing.JFrame {
+public class GuiSignIn extends javax.swing.JFrame {
     private Warehouse warehouse;
     private OrderCatalogue orderCatalogue;
     private PersonCatalogue personCatalogue;
@@ -12,16 +12,16 @@ public class guiSignIn extends javax.swing.JFrame {
     private String enteredName;
     private String enteredID;
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(guiSignIn.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(GuiSignIn.class.getName());
 
     /**
-     * Creates new form guiSignIn
+     * Creates new form GuiSignIn
      */
-    public guiSignIn() {
+    public GuiSignIn() {
         initComponents();
     }
     
-    public guiSignIn(Warehouse warehouse, OrderCatalogue orderCatalogue, PersonCatalogue personCatalogue){
+    public GuiSignIn(Warehouse warehouse, OrderCatalogue orderCatalogue, PersonCatalogue personCatalogue){
         this();
         this.warehouse = warehouse;
         this.orderCatalogue = orderCatalogue;
@@ -224,7 +224,7 @@ public class guiSignIn extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new guiSignIn().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new GuiSignIn().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
