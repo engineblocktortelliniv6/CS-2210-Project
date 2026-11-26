@@ -38,6 +38,9 @@ public class Main {
         // this means that the main method doesn't actually organise the execution control
         System.out.println("We don't want to use the old terminal-system.");
         System.out.println("So, here we need to put the methods for the new menu and signin system.");
+        
+        //Calling GuiSignIn
+        new GuiSignIn(warehouse, orderCatalogue, personCatalogue).setVisible(true);
 
     }
 
